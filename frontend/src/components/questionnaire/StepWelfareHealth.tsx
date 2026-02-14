@@ -121,6 +121,25 @@ export default function StepWelfareHealth() {
             ))}
           </div>
         </div>
+
+        {/* Medical expenses */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Do you have medical expenses not covered by insurance?
+          </label>
+          <p className="text-xs text-gray-400 mb-2">GP visits, prescriptions, hospital charges, etc.</p>
+          <div className="flex gap-3">
+            {[true, false].map((val) => (
+              <button
+                key={String(val)}
+                onClick={() => updateProfile({ has_medical_expenses: val })}
+                className={`select-card flex-1 py-3 ${profile.has_medical_expenses === val ? 'select-card-active' : ''}`}
+              >
+                <span className="text-sm font-medium">{val ? 'Yes' : 'No'}</span>
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

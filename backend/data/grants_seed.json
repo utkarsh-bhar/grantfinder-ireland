@@ -587,7 +587,7 @@
     "is_always_open": true,
     "typical_processing": "Several weeks",
     "eligibility_rules": [
-      {"rule_group": 0, "field": "county", "operator": "exists", "value": "", "description": "You must be based in Ireland", "is_mandatory": true}
+      {"rule_group": 0, "field": "is_first_time_buyer", "operator": "is_true", "value": "true", "description": "Most applicants are first-time buyers or those looking for a home", "is_mandatory": true}
     ],
     "steps": [
       {"step_number": 1, "title": "Find a vacant property", "description": "Identify a property that has been vacant for 2+ years.", "url": null},
@@ -1055,8 +1055,10 @@
     "is_always_open": true,
     "typical_processing": "Immediate",
     "eligibility_rules": [
-      {"rule_group": 0, "field": "marital_status", "operator": "in", "value": "married,cohabiting", "description": "You must be married or in a civil partnership", "is_mandatory": true},
-      {"rule_group": 0, "field": "is_carer", "operator": "is_true", "value": "true", "description": "One spouse must work in the home caring for a dependant", "is_mandatory": true}
+      {"rule_group": 0, "field": "marital_status", "operator": "in", "value": "married", "description": "You must be married or in a civil partnership (jointly assessed)", "is_mandatory": true},
+      {"rule_group": 0, "field": "has_children", "operator": "is_true", "value": "true", "description": "You must have children", "is_mandatory": true},
+      {"rule_group": 1, "field": "marital_status", "operator": "in", "value": "married", "description": "You must be married or in a civil partnership (jointly assessed)", "is_mandatory": true},
+      {"rule_group": 1, "field": "is_carer", "operator": "is_true", "value": "true", "description": "One spouse must work in the home caring for a dependant", "is_mandatory": true}
     ],
     "steps": [
       {"step_number": 1, "title": "Claim through Revenue", "description": "Apply for the credit through myAccount or ROS.", "url": "https://www.ros.ie/"}
@@ -1105,7 +1107,8 @@
     "is_always_open": true,
     "typical_processing": "Applied at end of year",
     "eligibility_rules": [
-      {"rule_group": 0, "field": "employment_status", "operator": "in", "value": "employed,self_employed", "description": "You must be working (employed or self-employed)", "is_mandatory": true}
+      {"rule_group": 0, "field": "employment_status", "operator": "in", "value": "employed,self_employed", "description": "You must be working (employed or self-employed)", "is_mandatory": true},
+      {"rule_group": 0, "field": "works_from_home", "operator": "is_true", "value": "true", "description": "You must work from home", "is_mandatory": true}
     ],
     "steps": [
       {"step_number": 1, "title": "Calculate your costs", "description": "Work out 30% of electricity, heating, and broadband costs for work-from-home days.", "url": null},
@@ -1269,7 +1272,7 @@
     "is_always_open": true,
     "typical_processing": "Applied at year end",
     "eligibility_rules": [
-      {"rule_group": 0, "field": "county", "operator": "exists", "value": "", "description": "Available to all Irish tax residents", "is_mandatory": true}
+      {"rule_group": 0, "field": "has_medical_expenses", "operator": "is_true", "value": "true", "description": "You must have qualifying medical expenses", "is_mandatory": true}
     ],
     "steps": [
       {"step_number": 1, "title": "Keep receipts", "description": "Keep all receipts for medical expenses throughout the year.", "url": null},
@@ -1296,9 +1299,8 @@
     "is_always_open": true,
     "typical_processing": "Applied at year end",
     "eligibility_rules": [
-      {"rule_group": 0, "field": "is_student", "operator": "is_true", "value": "true", "description": "You or a dependent is in approved education", "is_mandatory": true},
-      {"rule_group": 1, "field": "planning_education", "operator": "is_true", "value": "true", "description": "You are planning to enter education", "is_mandatory": true},
-      {"rule_group": 2, "field": "has_children", "operator": "is_true", "value": "true", "description": "You are paying tuition for a dependent child", "is_mandatory": true}
+      {"rule_group": 0, "field": "is_student", "operator": "is_true", "value": "true", "description": "You are a student in approved education", "is_mandatory": true},
+      {"rule_group": 1, "field": "planning_education", "operator": "is_true", "value": "true", "description": "You are planning to enter education", "is_mandatory": true}
     ],
     "steps": [
       {"step_number": 1, "title": "Ensure course is approved", "description": "Check that the college and course are on Revenue's approved list.", "url": null},

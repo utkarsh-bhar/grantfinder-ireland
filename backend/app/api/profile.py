@@ -1,11 +1,16 @@
 """Profile endpoints: create/update/get user questionnaire answers."""
 
+from datetime import datetime
+from typing import Any
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.database import get_db
 from app.models.user import User
 from app.models.profile import UserProfile
+from app.models.scan_result import ScanResult
+from app.models.alert import GrantAlert
 from app.schemas.profile import ProfileRequest, ProfileResponse
 from app.utils.auth import get_current_user
 
@@ -154,3 +159,80 @@ def _profile_to_response(profile: UserProfile) -> ProfileResponse:
         is_over_70=profile.is_over_70,
         has_child_under_7=profile.has_child_under_7,
     )
+
+
+@router.delete("/account", status_code=204)
+def delete_account(
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """Delete the user's account and all associated data (GDPR Article 17 - Right to Erasure)."""
+    db.delete(user)
+    db.commit()
+    return None
+
+
+@router.get("/export")
+def export_user_data(
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+) -> dict[str, Any]:
+    """Export all user data as JSON (GDPR Article 20 - Right to Data Portability)."""
+    profiles = (
+        db.query(UserProfile)
+        .filter(UserProfile.user_id == user.id)
+        .order_by(UserProfile.updated_at.desc())
+        .all()
+    )
+    scan_results = db.query(ScanResult).filter(ScanResult.user_id == user.id).all()
+    alerts = db.query(GrantAlert).filter(GrantAlert.user_id == user.id).all()
+
+    profile_data = []
+    for p in profiles:
+        profile_data.append(_profile_to_response(p).model_dump())
+
+    scan_data = []
+    for sr in scan_results:
+        matched = [
+            {
+                "grant_id": str(mg.grant_id),
+                "match_score": float(mg.match_score) if mg.match_score else None,
+                "match_type": mg.match_type,
+                "notes": mg.notes,
+            }
+            for mg in sr.matched_grants
+        ]
+        scan_data.append({
+            "id": str(sr.id),
+            "total_grants": sr.total_grants,
+            "total_value": float(sr.total_value) if sr.total_value else None,
+            "summary": sr.summary,
+            "created_at": sr.created_at.isoformat() if sr.created_at else None,
+            "matched_grants": matched,
+        })
+
+    alert_data = [
+        {
+            "id": str(a.id),
+            "grant_id": str(a.grant_id) if a.grant_id else None,
+            "alert_type": a.alert_type,
+            "channel": a.channel,
+            "is_active": a.is_active,
+            "created_at": a.created_at.isoformat() if a.created_at else None,
+        }
+        for a in alerts
+    ]
+
+    return {
+        "exported_at": datetime.utcnow().isoformat(),
+        "user": {
+            "id": str(user.id),
+            "email": user.email,
+            "plan": user.plan,
+            "created_at": user.created_at.isoformat() if user.created_at else None,
+            "updated_at": user.updated_at.isoformat() if user.updated_at else None,
+        },
+        "profiles": profile_data,
+        "scan_results": scan_data,
+        "alerts": alert_data,
+    }

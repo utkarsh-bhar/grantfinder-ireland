@@ -1,6 +1,10 @@
 """Authentication endpoints: register, login, refresh, OAuth."""
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from collections import defaultdict
+from datetime import datetime, timedelta
+from threading import Lock
+
+from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy.orm import Session
 
 from app.database import get_db
@@ -24,9 +28,39 @@ from app.utils.auth import (
 
 router = APIRouter(prefix="/api/v1/auth", tags=["Authentication"])
 
+# In-memory rate limiter: {ip: [timestamps]}
+_rate_limit_store: dict[str, list[datetime]] = defaultdict(list)
+_rate_limit_lock = Lock()
+_RATE_LIMIT_MAX = 10
+_RATE_LIMIT_WINDOW_SECONDS = 60
+
+
+def _get_client_ip(request: Request) -> str:
+    forwarded = request.headers.get("x-forwarded-for")
+    if forwarded:
+        return forwarded.split(",")[0].strip()
+    return request.client.host if request.client else "unknown"
+
+
+def rate_limit_auth(request: Request) -> None:
+    ip = _get_client_ip(request)
+    now = datetime.utcnow()
+    cutoff = now - timedelta(seconds=_RATE_LIMIT_WINDOW_SECONDS)
+    with _rate_limit_lock:
+        timestamps = _rate_limit_store[ip]
+        timestamps[:] = [t for t in timestamps if t > cutoff]
+        if len(timestamps) >= _RATE_LIMIT_MAX:
+            raise HTTPException(429, "Too many requests. Please try again later.")
+        timestamps.append(now)
+
 
 @router.post("/register", response_model=TokenResponse, status_code=201)
-def register(body: RegisterRequest, db: Session = Depends(get_db)):
+def register(
+    body: RegisterRequest,
+    request: Request,
+    db: Session = Depends(get_db),
+):
+    rate_limit_auth(request)
     if len(body.password) < 8:
         raise HTTPException(400, "Password must be at least 8 characters")
 
@@ -50,7 +84,12 @@ def register(body: RegisterRequest, db: Session = Depends(get_db)):
 
 
 @router.post("/login", response_model=TokenResponse)
-def login(body: LoginRequest, db: Session = Depends(get_db)):
+def login(
+    body: LoginRequest,
+    request: Request,
+    db: Session = Depends(get_db),
+):
+    rate_limit_auth(request)
     user = db.query(User).filter(User.email == body.email).first()
     if not user or not user.password_hash:
         raise HTTPException(401, "Invalid email or password")

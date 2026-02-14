@@ -24,10 +24,12 @@ class AnonymousScanRequest(BaseModel):
     employment_status: Optional[str] = None
     income_bracket: Optional[str] = None
     is_freelancer: Optional[bool] = None
+    works_from_home: Optional[bool] = None
     welfare_payments: Optional[list[str]] = None
     has_medical_card: Optional[bool] = None
     has_disability: Optional[bool] = None
     household_disability: Optional[bool] = None
+    has_medical_expenses: Optional[bool] = None
     is_student: Optional[bool] = None
     planning_education: Optional[bool] = None
     owns_business: Optional[bool] = None

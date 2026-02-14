@@ -258,6 +258,7 @@ class GrantMatcher:
 
         best_score: float = 0
         best_failed: list[str] = []
+        best_hard_fails: int = 0
         any_group_passed = False
 
         for _group_id, group_rules in groups.items():
@@ -268,6 +269,7 @@ class GrantMatcher:
             ]
             total = len(mandatory)
             passed = 0
+            hard_fails = 0          # Fields present but explicitly don't match
             failed_descriptions: list[str] = []
 
             for rule in mandatory:
@@ -294,11 +296,14 @@ class GrantMatcher:
                     if evaluator and evaluator(field_value, r_val):
                         passed += 1
                     else:
+                        # Field IS present but doesn't match → hard fail
+                        hard_fails += 1
                         failed_descriptions.append(
                             r_desc
                             or f"Requirement: {r_field} {r_op} {r_val}"
                         )
                 except (ValueError, TypeError, IndexError):
+                    hard_fails += 1
                     failed_descriptions.append(
                         r_desc or f"Could not evaluate: {r_field}"
                     )
@@ -311,14 +316,20 @@ class GrantMatcher:
             if group_score > best_score:
                 best_score = group_score
                 best_failed = failed_descriptions
+                best_hard_fails = hard_fails
 
-        # Determine match type
+        # Determine match type — stricter thresholds to avoid noisy results
+        # If any rule explicitly failed (field present but doesn't match),
+        # require a higher bar to show as "possible"
         if any_group_passed:
             match_type = MatchType.ELIGIBLE
             best_score = 100.0
-        elif best_score >= 75:
+        elif best_hard_fails > 0 and best_score < 80:
+            # User actively disqualified on at least one criterion
+            match_type = MatchType.NOT_ELIGIBLE
+        elif best_score >= 80:
             match_type = MatchType.LIKELY
-        elif best_score >= 50:
+        elif best_score >= 60:
             match_type = MatchType.POSSIBLE
         else:
             match_type = MatchType.NOT_ELIGIBLE

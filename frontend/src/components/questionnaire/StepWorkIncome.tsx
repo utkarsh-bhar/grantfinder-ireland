@@ -75,6 +75,26 @@ export default function StepWorkIncome() {
             ))}
           </div>
         </div>
+
+        {/* Work from home */}
+        {(profile.employment_status === 'employed' || profile.employment_status === 'self_employed') && (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Do you regularly work from home?
+            </label>
+            <div className="flex gap-3">
+              {[true, false].map((val) => (
+                <button
+                  key={String(val)}
+                  onClick={() => updateProfile({ works_from_home: val })}
+                  className={`select-card flex-1 py-3 ${profile.works_from_home === val ? 'select-card-active' : ''}`}
+                >
+                  <span className="text-sm font-medium">{val ? 'Yes' : 'No'}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

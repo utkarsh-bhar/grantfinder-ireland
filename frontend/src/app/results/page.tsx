@@ -68,40 +68,56 @@ export default function ResultsPage() {
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {cat.grants.map((grant) => {
                 const badge = matchTypeBadge(grant.match_type);
+                const borderColor =
+                  grant.match_type === 'eligible'
+                    ? 'border-l-green-500'
+                    : grant.match_type === 'likely'
+                      ? 'border-l-blue-500'
+                      : 'border-l-amber-500';
                 return (
-                  <div
+                  <Link
                     key={grant.grant_id}
-                    className="card relative"
+                    href={`/grants/${grant.slug}`}
+                    className={`card relative block border-l-4 ${borderColor} group hover:border-brand-300 hover:shadow-md transition-all cursor-pointer`}
                   >
-                    <div className="flex items-start justify-between">
-                      <h3 className="pr-4 text-sm font-semibold text-gray-900 leading-snug">
-                        {grant.name}
-                      </h3>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span
+                        className={`inline-block h-2 w-2 rounded-full ${
+                          grant.match_type === 'eligible'
+                            ? 'bg-green-500'
+                            : grant.match_type === 'likely'
+                              ? 'bg-blue-500'
+                              : 'bg-amber-500'
+                        }`}
+                      />
+                      <span
+                        className={`text-xs font-medium ${
+                          grant.match_type === 'eligible'
+                            ? 'text-green-700'
+                            : grant.match_type === 'likely'
+                              ? 'text-blue-700'
+                              : 'text-amber-700'
+                        }`}
+                      >
+                        {badge.label}
+                      </span>
                     </div>
-                    <span className={`badge mt-2 ${badge.className}`}>{badge.label}</span>
-                    <p className="mt-3 text-lg font-bold text-brand-600">
+                    <h3 className="text-sm font-semibold text-gray-900 leading-snug group-hover:text-brand-600 transition-colors">
+                      {grant.name}
+                    </h3>
+                    <p className="mt-2 text-lg font-bold text-brand-600">
                       {grant.amount_description || formatCurrency(grant.max_amount)}
                     </p>
-                    <p className="mt-2 text-xs text-gray-500 line-clamp-2">
+                    <p className="mt-1.5 text-xs text-gray-500 line-clamp-2">
                       {grant.short_description}
                     </p>
-                    {grant.notes && (
-                      <p className="mt-2 text-xs italic text-gray-400">{grant.notes}</p>
-                    )}
-                    <div className="mt-4 flex items-center gap-2">
+                    <div className="mt-3 flex items-center justify-between pt-3 border-t border-gray-100">
                       <span className="text-xs text-gray-400">{grant.source_organisation}</span>
-                      {grant.source_url && (
-                        <a
-                          href={grant.source_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs text-brand-600 hover:underline"
-                        >
-                          Learn more &rarr;
-                        </a>
-                      )}
+                      <span className="text-xs font-medium text-brand-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        View details →
+                      </span>
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>

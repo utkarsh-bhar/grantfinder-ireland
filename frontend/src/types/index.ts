@@ -28,12 +28,14 @@ export interface ProfileData {
   employment_status?: 'employed' | 'self_employed' | 'unemployed' | 'retired' | 'student' | 'homemaker';
   income_bracket?: '<20k' | '20-40k' | '40-60k' | '60-80k' | '80k+';
   is_freelancer?: boolean;
+  works_from_home?: boolean;
 
   // Step 5: Welfare & Health
   welfare_payments?: string[];
   has_medical_card?: boolean;
   has_disability?: boolean;
   household_disability?: boolean;
+  has_medical_expenses?: boolean;
 
   // Step 6: Education & Business
   is_student?: boolean;
