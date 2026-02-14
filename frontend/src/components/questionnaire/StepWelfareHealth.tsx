@@ -125,9 +125,9 @@ export default function StepWelfareHealth() {
         {/* Medical expenses */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Do you have medical expenses not covered by insurance?
+            Have you paid for any medical expenses this year?
           </label>
-          <p className="text-xs text-gray-400 mb-2">GP visits, prescriptions, hospital charges, etc.</p>
+          <p className="text-xs text-gray-400 mb-2">GP visits, prescriptions, dental, hospital, physio, etc. — even if partly covered by insurance, you can claim 20% tax relief on the amount you paid out of pocket</p>
           <div className="flex gap-3">
             {[true, false].map((val) => (
               <button

@@ -1259,8 +1259,8 @@
   {
     "name": "Medical Expenses Tax Relief",
     "slug": "medical-expenses-tax-relief",
-    "short_description": "Claim 20% tax relief on qualifying medical expenses not covered by insurance.",
-    "long_description": "You can claim tax relief at 20% on qualifying medical expenses that you have paid and are not reimbursed by insurance. This includes GP visits, prescribed medicines, hospital charges, physiotherapy, and more.",
+    "short_description": "Claim 20% tax relief on qualifying medical expenses — subtract any insurance reimbursement and claim on the rest.",
+    "long_description": "You can claim tax relief at 20% on qualifying medical expenses you've paid during the year. If your insurance covers part of the cost, you simply subtract the reimbursed amount and claim relief on what you paid out of pocket. Qualifying expenses include GP visits, consultant fees, prescribed medicines, hospital charges, dental (non-routine), physiotherapy, speech therapy, and more. Claims can be backdated up to 4 years.",
     "category": "tax_relief",
     "max_amount": null,
     "amount_description": "20% of qualifying medical expenses",
