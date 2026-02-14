@@ -71,6 +71,50 @@ export default function StepFamily() {
           </>
         )}
 
+        {/* Expecting / New Parent */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Are you or your partner currently pregnant or a new parent (baby under 6 months)?
+          </label>
+          <p className="text-xs text-gray-400 mb-2">
+            This helps us check Maternity/Paternity Benefit eligibility
+          </p>
+          <div className="flex gap-3">
+            {[true, false].map((val) => (
+              <button
+                key={String(val)}
+                onClick={() => updateProfile({ is_expecting_or_new_parent: val })}
+                className={`select-card flex-1 py-3 ${profile.is_expecting_or_new_parent === val ? 'select-card-active' : ''}`}
+              >
+                <span className="text-sm font-medium">{val ? 'Yes' : 'No'}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Home Carer Spouse - only for married */}
+        {profile.marital_status === 'married' && (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Does your spouse/partner stay at home to care for a child, elderly, or incapacitated person?
+            </label>
+            <p className="text-xs text-gray-400 mb-2">
+              For the Home Carer Tax Credit (up to €1,700) — the carer&apos;s own income must be under €10,400/year
+            </p>
+            <div className="flex gap-3">
+              {[true, false].map((val) => (
+                <button
+                  key={String(val)}
+                  onClick={() => updateProfile({ has_home_carer_spouse: val })}
+                  className={`select-card flex-1 py-3 ${profile.has_home_carer_spouse === val ? 'select-card-active' : ''}`}
+                >
+                  <span className="text-sm font-medium">{val ? 'Yes' : 'No'}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Carer */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">

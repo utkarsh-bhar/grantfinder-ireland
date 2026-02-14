@@ -335,19 +335,26 @@
     "typical_processing": "6-12 months (waiting list applies)",
     "eligibility_rules": [
       {"rule_group": 0, "field": "home_status", "operator": "eq", "value": "owner", "description": "You must own and live in the property", "is_mandatory": true},
+      {"rule_group": 0, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k", "description": "You must be on a low income (welfare recipient)", "is_mandatory": true},
       {"rule_group": 0, "field": "welfare_payments", "operator": "contains", "value": "fuel_allowance", "description": "You must be receiving Fuel Allowance", "is_mandatory": true},
       {"rule_group": 1, "field": "home_status", "operator": "eq", "value": "owner", "description": "You must own and live in the property", "is_mandatory": true},
+      {"rule_group": 1, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k", "description": "You must be on a low income (welfare recipient)", "is_mandatory": true},
       {"rule_group": 1, "field": "welfare_payments", "operator": "contains", "value": "jobseekers_allowance", "description": "You are receiving Jobseeker's Allowance for 6+ months and have a child under 7", "is_mandatory": true},
       {"rule_group": 1, "field": "has_child_under_7", "operator": "is_true", "value": "true", "description": "You have a child under 7", "is_mandatory": true},
       {"rule_group": 2, "field": "home_status", "operator": "eq", "value": "owner", "description": "You must own and live in the property", "is_mandatory": true},
+      {"rule_group": 2, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k", "description": "You must be on a low income (welfare recipient)", "is_mandatory": true},
       {"rule_group": 2, "field": "welfare_payments", "operator": "contains", "value": "working_family_payment", "description": "You are receiving Working Family Payment", "is_mandatory": true},
       {"rule_group": 3, "field": "home_status", "operator": "eq", "value": "owner", "description": "You must own and live in the property", "is_mandatory": true},
+      {"rule_group": 3, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k", "description": "You must be on a low income (welfare recipient)", "is_mandatory": true},
       {"rule_group": 3, "field": "welfare_payments", "operator": "contains", "value": "one_parent_family_payment", "description": "You are receiving One Parent Family Payment", "is_mandatory": true},
       {"rule_group": 4, "field": "home_status", "operator": "eq", "value": "owner", "description": "You must own and live in the property", "is_mandatory": true},
+      {"rule_group": 4, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k", "description": "You must be on a low income (welfare recipient)", "is_mandatory": true},
       {"rule_group": 4, "field": "welfare_payments", "operator": "contains", "value": "domiciliary_care_allowance", "description": "You are receiving Domiciliary Care Allowance", "is_mandatory": true},
       {"rule_group": 5, "field": "home_status", "operator": "eq", "value": "owner", "description": "You must own and live in the property", "is_mandatory": true},
+      {"rule_group": 5, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k", "description": "You must be on a low income (welfare recipient)", "is_mandatory": true},
       {"rule_group": 5, "field": "welfare_payments", "operator": "contains", "value": "carers_allowance", "description": "You are receiving Carer's Allowance", "is_mandatory": true},
       {"rule_group": 6, "field": "home_status", "operator": "eq", "value": "owner", "description": "You must own and live in the property", "is_mandatory": true},
+      {"rule_group": 6, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k", "description": "You must be on a low income (welfare recipient)", "is_mandatory": true},
       {"rule_group": 6, "field": "welfare_payments", "operator": "contains", "value": "disability_allowance", "description": "You are receiving Disability Allowance", "is_mandatory": true}
     ],
     "steps": [
@@ -558,7 +565,9 @@
     "typical_processing": "Several weeks to months",
     "eligibility_rules": [
       {"rule_group": 0, "field": "has_disability", "operator": "is_true", "value": "true", "description": "You must have mobility difficulties", "is_mandatory": true},
-      {"rule_group": 1, "field": "is_over_66", "operator": "is_true", "value": "true", "description": "You are 66 or older and need mobility support", "is_mandatory": true}
+      {"rule_group": 0, "field": "home_status", "operator": "in", "value": "owner,local_authority_tenant", "description": "You must own your home or be a local authority tenant", "is_mandatory": true},
+      {"rule_group": 1, "field": "is_over_66", "operator": "is_true", "value": "true", "description": "You are 66 or older and need mobility support", "is_mandatory": true},
+      {"rule_group": 1, "field": "home_status", "operator": "in", "value": "owner,local_authority_tenant", "description": "You must own your home or be a local authority tenant", "is_mandatory": true}
     ],
     "steps": [
       {"step_number": 1, "title": "Contact your local authority", "description": "Contact the housing section of your county council.", "url": null},
@@ -648,11 +657,14 @@
     "is_always_open": true,
     "typical_processing": "4-6 weeks",
     "eligibility_rules": [
-      {"rule_group": 0, "field": "is_over_66", "operator": "is_true", "value": "true", "description": "You are aged 66 or over and living alone or with qualifying person", "is_mandatory": true},
-      {"rule_group": 1, "field": "welfare_payments", "operator": "contains", "value": "disability_allowance", "description": "You are receiving Disability Allowance", "is_mandatory": true},
-      {"rule_group": 2, "field": "welfare_payments", "operator": "contains", "value": "invalidity_pension", "description": "You are receiving Invalidity Pension", "is_mandatory": true},
-      {"rule_group": 3, "field": "welfare_payments", "operator": "contains", "value": "one_parent_family_payment", "description": "You are receiving One Parent Family Payment", "is_mandatory": true},
-      {"rule_group": 4, "field": "welfare_payments", "operator": "contains", "value": "jobseekers_allowance", "description": "You are receiving Jobseeker's Allowance for 15+ months", "is_mandatory": true}
+      {"rule_group": 0, "field": "is_over_70", "operator": "is_true", "value": "true", "description": "You are aged 70 or over", "is_mandatory": true},
+      {"rule_group": 0, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k", "description": "Your weekly household income is within the Fuel Allowance means test limit (€200/week single, €400/week couple above pension)", "is_mandatory": true},
+      {"rule_group": 1, "field": "is_over_66", "operator": "is_true", "value": "true", "description": "You are aged 66 or over and receiving State Pension", "is_mandatory": true},
+      {"rule_group": 1, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k", "description": "Your household income is within the means test limit", "is_mandatory": true},
+      {"rule_group": 2, "field": "welfare_payments", "operator": "contains", "value": "disability_allowance", "description": "You are receiving Disability Allowance", "is_mandatory": true},
+      {"rule_group": 3, "field": "welfare_payments", "operator": "contains", "value": "invalidity_pension", "description": "You are receiving Invalidity Pension", "is_mandatory": true},
+      {"rule_group": 4, "field": "welfare_payments", "operator": "contains", "value": "one_parent_family_payment", "description": "You are receiving One Parent Family Payment", "is_mandatory": true},
+      {"rule_group": 5, "field": "welfare_payments", "operator": "contains", "value": "jobseekers_allowance", "description": "You are receiving Jobseeker's Allowance for 15+ months", "is_mandatory": true}
     ],
     "steps": [
       {"step_number": 1, "title": "Check eligibility", "description": "You must be receiving a qualifying social welfare payment and satisfy the means test.", "url": null},
@@ -770,7 +782,7 @@
     "eligibility_rules": [
       {"rule_group": 0, "field": "has_children", "operator": "is_true", "value": "true", "description": "You have children under 8 who qualify automatically", "is_mandatory": true},
       {"rule_group": 1, "field": "is_over_70", "operator": "is_true", "value": "true", "description": "You are over 70 and qualify automatically", "is_mandatory": true},
-      {"rule_group": 2, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k,40-60k", "description": "Your income is below the GP Visit Card threshold", "is_mandatory": true}
+      {"rule_group": 2, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k", "description": "Your income is below the GP Visit Card threshold (~€304/week for single person)", "is_mandatory": true}
     ],
     "steps": [
       {"step_number": 1, "title": "Apply online", "description": "Apply through mymedicalcard.ie for yourself and eligible family members.", "url": "https://www.mymedicalcard.ie/"}
@@ -1057,7 +1069,7 @@
     "typical_processing": "Immediate",
     "eligibility_rules": [
       {"rule_group": 0, "field": "marital_status", "operator": "in", "value": "married", "description": "You must be married or in a civil partnership (jointly assessed)", "is_mandatory": true},
-      {"rule_group": 0, "field": "has_children", "operator": "is_true", "value": "true", "description": "You must have children", "is_mandatory": true},
+      {"rule_group": 0, "field": "has_home_carer_spouse", "operator": "is_true", "value": "true", "description": "One spouse/partner stays at home to care for a dependent person (child, elderly, or incapacitated) with carer income under €10,400", "is_mandatory": true},
       {"rule_group": 1, "field": "marital_status", "operator": "in", "value": "married", "description": "You must be married or in a civil partnership (jointly assessed)", "is_mandatory": true},
       {"rule_group": 1, "field": "is_carer", "operator": "is_true", "value": "true", "description": "One spouse must work in the home caring for a dependant", "is_mandatory": true}
     ],
@@ -1245,7 +1257,8 @@
     "is_always_open": true,
     "typical_processing": "2-4 weeks",
     "eligibility_rules": [
-      {"rule_group": 0, "field": "employment_status", "operator": "in", "value": "employed,self_employed", "description": "You must be in employment or self-employment", "is_mandatory": true}
+      {"rule_group": 0, "field": "employment_status", "operator": "in", "value": "employed,self_employed", "description": "You must be in employment or self-employment", "is_mandatory": true},
+      {"rule_group": 0, "field": "is_expecting_or_new_parent", "operator": "is_true", "value": "true", "description": "You or your partner must be pregnant or have recently had a baby", "is_mandatory": true}
     ],
     "steps": [
       {"step_number": 1, "title": "Notify your employer", "description": "Give your employer at least 4 weeks' notice of your maternity leave.", "url": null},

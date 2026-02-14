@@ -37,6 +37,8 @@ class AnonymousScanRequest(BaseModel):
     has_medical_expenses: Optional[bool] = None
     is_visually_impaired: Optional[bool] = None
     has_nursing_home_expenses: Optional[bool] = None
+    is_expecting_or_new_parent: Optional[bool] = None
+    has_home_carer_spouse: Optional[bool] = None
     is_student: Optional[bool] = None
     planning_education: Optional[bool] = None
     owns_business: Optional[bool] = None

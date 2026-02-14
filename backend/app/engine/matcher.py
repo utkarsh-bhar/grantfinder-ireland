@@ -109,6 +109,8 @@ def _op_is_true(field_val: Any, _rule_val: str) -> bool:
 
 
 def _op_is_false(field_val: Any, _rule_val: str) -> bool:
+    if field_val is None:
+        return False  # Unknown ≠ False — treat as uncertain
     return bool(field_val) is False
 
 
@@ -285,7 +287,7 @@ class GrantMatcher:
                 field_value = profile.get(r_field)
 
                 # Missing field → uncertain, not outright fail
-                if field_value is None and r_op not in ("is_false", "exists"):
+                if field_value is None and r_op not in ("exists",):
                     failed_descriptions.append(
                         r_desc or f"We need to know your '{r_field}'"
                     )

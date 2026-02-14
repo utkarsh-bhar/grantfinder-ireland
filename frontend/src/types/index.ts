@@ -28,6 +28,8 @@ export interface ProfileData {
   has_dependent_relatives?: boolean;
   num_dependent_relatives?: number;
   has_incapacitated_child?: boolean;
+  is_expecting_or_new_parent?: boolean;
+  has_home_carer_spouse?: boolean;
 
   // Step 4: Work & Income
   employment_status?: 'employed' | 'self_employed' | 'unemployed' | 'retired' | 'student' | 'homemaker';
