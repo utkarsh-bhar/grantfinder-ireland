@@ -10,7 +10,11 @@ from app.utils.validators import GRANT_CATEGORIES
 TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), "templates")
 
 
-def generate_report_bytes(matched_grants: list[dict], user_label: str = "GrantFinder User") -> bytes:
+def generate_report_bytes(
+    matched_grants: list[dict],
+    user_label: str = "GrantFinder User",
+    ai_summary: str = "",
+) -> bytes:
     """
     Generate a PDF report and return it as bytes.
 
@@ -19,9 +23,12 @@ def generate_report_bytes(matched_grants: list[dict], user_label: str = "GrantFi
     matched_grants : list[dict]
         Each dict should have: name, category, match_type, match_score,
         max_amount, amount_description, short_description, source_url,
-        application_url, notes, slug.
+        application_url, notes, slug, estimated_annual_saving,
+        estimated_backdated_saving, savings_note, how_to_claim.
     user_label : str
-        Label to show on the cover page (email or "GrantFinder User").
+        Label to show on the cover page.
+    ai_summary : str
+        AI-generated personalised summary text.
 
     Returns
     -------
@@ -40,21 +47,31 @@ def generate_report_bytes(matched_grants: list[dict], user_label: str = "GrantFi
 
     total_value = sum(g.get("max_amount") or 0 for g in matched_grants)
 
+    # Calculate total backdated value
+    total_annual_saving = sum(g.get("estimated_annual_saving") or 0 for g in matched_grants)
+    total_backdated = sum(g.get("estimated_backdated_saving") or 0 for g in matched_grants)
+    backdatable_grants = [g for g in matched_grants if g.get("estimated_backdated_saving")]
+    claimable_grants = [g for g in matched_grants if g.get("how_to_claim")]
+
     html_content = template.render(
         user_email=user_label,
         generated_date=datetime.now().strftime("%d %B %Y"),
         total_grants=len(matched_grants),
         total_value=f"€{total_value:,.0f}",
+        total_annual_saving=f"€{total_annual_saving:,.0f}" if total_annual_saving else None,
+        total_backdated=f"€{total_backdated:,.0f}" if total_backdated else None,
+        backdatable_count=len(backdatable_grants),
         categories=categories,
         category_labels=category_map,
         grants=matched_grants,
+        ai_summary=ai_summary,
+        claimable_grants=claimable_grants,
     )
 
     try:
         from weasyprint import HTML
         pdf_bytes = HTML(string=html_content).write_pdf()
     except ImportError:
-        # WeasyPrint not installed — return HTML as fallback
         pdf_bytes = html_content.encode("utf-8")
 
     return pdf_bytes

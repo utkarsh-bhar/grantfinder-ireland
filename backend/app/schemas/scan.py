@@ -63,8 +63,13 @@ class GrantMatchResponse(BaseModel):
     source_url: str = ""
     application_url: Optional[str] = None
     notes: str = ""
-    is_locked: bool = False  # True when user must pay for full details
+    is_locked: bool = False
     category: str = ""
+    # Savings estimates
+    estimated_annual_saving: Optional[float] = None
+    estimated_backdated_saving: Optional[float] = None
+    savings_note: str = ""
+    how_to_claim: str = ""
 
 
 class CategoryResult(BaseModel):

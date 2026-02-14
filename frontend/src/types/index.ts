@@ -77,6 +77,10 @@ export interface GrantMatch {
   notes: string;
   is_locked: boolean;
   category: string;
+  estimated_annual_saving: number | null;
+  estimated_backdated_saving: number | null;
+  savings_note: string;
+  how_to_claim: string;
 }
 
 export interface CategoryResult {

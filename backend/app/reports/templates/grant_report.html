@@ -7,89 +7,193 @@
   @page { size: A4; margin: 2cm; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #1a1a2e; font-size: 11pt; line-height: 1.5; }
-  
-  .cover { text-align: center; padding: 120px 40px 80px; page-break-after: always; }
+
+  /* Cover page */
+  .cover { text-align: center; padding: 100px 40px 60px; page-break-after: always; }
+  .cover .logo { font-size: 20pt; font-weight: 700; color: #16a34a; margin-bottom: 30px; }
   .cover h1 { font-size: 28pt; color: #16a34a; margin-bottom: 12px; }
-  .cover .subtitle { font-size: 14pt; color: #475569; margin-bottom: 40px; }
-  .cover .total { font-size: 36pt; font-weight: 700; color: #16a34a; margin: 30px 0; }
-  .cover .total-label { font-size: 13pt; color: #64748b; }
-  .cover .user { font-size: 12pt; color: #64748b; margin-top: 30px; }
+  .cover .subtitle { font-size: 13pt; color: #475569; margin-bottom: 40px; }
+  .cover .total { font-size: 40pt; font-weight: 800; color: #16a34a; margin: 20px 0; }
+  .cover .total-label { font-size: 12pt; color: #64748b; }
+  .cover .user { font-size: 11pt; color: #64748b; margin-top: 30px; }
   .cover .date { font-size: 10pt; color: #94a3b8; margin-top: 6px; }
-  .cover .logo { font-size: 18pt; font-weight: 700; color: #16a34a; margin-bottom: 30px; }
+  .cover .backdated-box { background: #fef3c7; border: 2px solid #f59e0b; border-radius: 12px; padding: 16px 24px; margin: 30px auto; max-width: 420px; }
+  .cover .backdated-box .amount { font-size: 22pt; font-weight: 700; color: #92400e; }
+  .cover .backdated-box .label { font-size: 10pt; color: #92400e; }
 
-  .summary { page-break-after: always; padding: 20px 0; }
-  .summary h2 { font-size: 20pt; color: #16a34a; margin-bottom: 16px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; }
-  .stats { display: flex; gap: 20px; margin: 20px 0; }
-  .stat-box { flex: 1; background: #f0fdf4; border-radius: 8px; padding: 16px; text-align: center; }
-  .stat-box .number { font-size: 24pt; font-weight: 700; color: #16a34a; }
-  .stat-box .label { font-size: 9pt; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+  /* Section headers */
+  h2.section-title { font-size: 18pt; color: #16a34a; margin: 24px 0 12px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+  h3.subsection { font-size: 14pt; color: #334155; margin: 16px 0 8px; }
 
-  .category-section { margin: 24px 0; }
-  .category-title { font-size: 16pt; color: #1e40af; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid #e2e8f0; }
+  /* Stats bar */
+  .stats { display: flex; gap: 16px; margin: 16px 0 24px; }
+  .stat-box { flex: 1; background: #f0fdf4; border-radius: 8px; padding: 14px 12px; text-align: center; border: 1px solid #bbf7d0; }
+  .stat-box .number { font-size: 22pt; font-weight: 700; color: #16a34a; }
+  .stat-box .label { font-size: 8pt; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+  .stat-box.amber { background: #fffbeb; border-color: #fde68a; }
+  .stat-box.amber .number { color: #92400e; }
 
-  .grant-card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; margin-bottom: 12px; }
-  .grant-card .grant-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
-  .grant-card .grant-name { font-size: 12pt; font-weight: 600; color: #1a1a2e; }
-  .grant-card .grant-amount { font-size: 12pt; font-weight: 700; color: #16a34a; white-space: nowrap; }
-  .grant-card .match-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 8pt; font-weight: 600; text-transform: uppercase; }
+  /* AI summary */
+  .ai-summary { background: #f8fafc; border-left: 4px solid #16a34a; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+  .ai-summary p { font-size: 10.5pt; color: #334155; line-height: 1.7; margin-bottom: 8px; }
+  .ai-summary p:last-child { margin-bottom: 0; }
+
+  /* Page break */
+  .page-break { page-break-before: always; }
+
+  /* Category sections */
+  .category-section { margin: 20px 0; }
+  .category-title { font-size: 15pt; color: #1e40af; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #e2e8f0; }
+
+  /* Grant cards */
+  .grant-card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; margin-bottom: 10px; page-break-inside: avoid; }
+  .grant-card .grant-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
+  .grant-card .grant-name { font-size: 11.5pt; font-weight: 600; color: #1a1a2e; }
+  .grant-card .grant-amount { font-size: 11.5pt; font-weight: 700; color: #16a34a; white-space: nowrap; margin-left: 10px; }
+  .grant-card .match-badge { display: inline-block; padding: 1px 7px; border-radius: 4px; font-size: 7.5pt; font-weight: 600; text-transform: uppercase; vertical-align: middle; margin-left: 6px; }
   .badge-eligible { background: #dcfce7; color: #166534; }
-  .badge-likely { background: #fef9c3; color: #854d0e; }
-  .badge-possible { background: #e0e7ff; color: #3730a3; }
-  .grant-card .description { font-size: 10pt; color: #475569; margin: 6px 0; }
+  .badge-likely { background: #dbeafe; color: #1e40af; }
+  .badge-possible { background: #fef3c7; color: #92400e; }
+  .grant-card .description { font-size: 9.5pt; color: #475569; margin: 4px 0; }
+  .grant-card .savings-line { font-size: 9.5pt; color: #16a34a; font-weight: 600; margin: 4px 0; }
   .grant-card .notes { font-size: 9pt; color: #64748b; font-style: italic; }
-  .grant-card .link { font-size: 9pt; color: #2563eb; text-decoration: none; }
+  .grant-card .link { font-size: 8.5pt; color: #2563eb; text-decoration: none; }
 
-  .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #e2e8f0; font-size: 9pt; color: #94a3b8; }
-  .disclaimer { font-size: 8pt; color: #94a3b8; margin-top: 20px; line-height: 1.4; }
+  /* How to claim section */
+  .claim-section { margin: 20px 0; }
+  .claim-card { border: 1px solid #e2e8f0; border-left: 4px solid #16a34a; border-radius: 0 8px 8px 0; padding: 12px 14px; margin-bottom: 10px; page-break-inside: avoid; }
+  .claim-card .claim-title { font-size: 11pt; font-weight: 600; color: #16a34a; margin-bottom: 6px; }
+  .claim-card .claim-steps { font-size: 9.5pt; color: #334155; white-space: pre-line; line-height: 1.6; }
+
+  /* Backdated section */
+  .backdate-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 9.5pt; }
+  .backdate-table th { background: #f8fafc; padding: 8px 10px; text-align: left; border-bottom: 2px solid #e2e8f0; color: #334155; font-weight: 600; }
+  .backdate-table td { padding: 6px 10px; border-bottom: 1px solid #f1f5f9; color: #475569; }
+  .backdate-table .amount { font-weight: 700; color: #16a34a; text-align: right; }
+  .backdate-table tfoot td { font-weight: 700; border-top: 2px solid #e2e8f0; color: #1a1a2e; }
+
+  /* Footer */
+  .footer { margin-top: 30px; padding-top: 16px; border-top: 2px solid #e2e8f0; }
+  .disclaimer { font-size: 8pt; color: #94a3b8; margin-top: 16px; line-height: 1.4; }
 </style>
 </head>
 <body>
 
-<!-- COVER PAGE -->
+<!-- ═══ COVER PAGE ═══ -->
 <div class="cover">
-  <div class="logo">🍀 GrantFinder.ie</div>
+  <div class="logo">GrantFinder.ie</div>
   <h1>Your Personalised Grant Report</h1>
-  <p class="subtitle">A comprehensive guide to every grant, scheme, and entitlement you may qualify for in Ireland</p>
+  <p class="subtitle">A comprehensive guide to every grant, scheme, and tax credit you may qualify for in Ireland</p>
   <p class="total-label">You could be entitled to up to</p>
   <p class="total">{{ total_value }}</p>
   <p class="total-label">across {{ total_grants }} grants and schemes</p>
+
+  {% if total_backdated %}
+  <div class="backdated-box">
+    <div class="label">BACKDATED CLAIMS OPPORTUNITY</div>
+    <div class="amount">{{ total_backdated }}</div>
+    <div class="label">potentially owed from previous years ({{ backdatable_count }} credits can be backdated)</div>
+  </div>
+  {% endif %}
+
   <p class="user">Prepared for: {{ user_email }}</p>
   <p class="date">Generated on {{ generated_date }}</p>
 </div>
 
-<!-- EXECUTIVE SUMMARY -->
-<div class="summary">
-  <h2>Executive Summary</h2>
-  <div class="stats">
-    <div class="stat-box">
-      <div class="number">{{ total_grants }}</div>
-      <div class="label">Grants Found</div>
-    </div>
-    <div class="stat-box">
-      <div class="number">{{ total_value }}</div>
-      <div class="label">Potential Value</div>
-    </div>
-    <div class="stat-box">
-      <div class="number">{{ categories|length }}</div>
-      <div class="label">Categories</div>
-    </div>
-  </div>
+<!-- ═══ EXECUTIVE SUMMARY ═══ -->
+<h2 class="section-title">Executive Summary</h2>
 
-  <h3 style="margin: 20px 0 10px; font-size: 13pt; color: #334155;">Top Grants by Value</h3>
-  {% for g in grants[:5] %}
-  <p style="font-size: 10pt; margin: 4px 0;">
-    <strong>{{ g.name }}</strong> — {{ g.amount_description or 'Variable amount' }}
-    <span class="match-badge {% if g.match_type == 'eligible' %}badge-eligible{% elif g.match_type == 'likely' %}badge-likely{% else %}badge-possible{% endif %}">
-      {{ g.match_type }}
-    </span>
-  </p>
-  {% endfor %}
+<div class="stats">
+  <div class="stat-box">
+    <div class="number">{{ total_grants }}</div>
+    <div class="label">Grants Found</div>
+  </div>
+  <div class="stat-box">
+    <div class="number">{{ total_value }}</div>
+    <div class="label">Potential Value</div>
+  </div>
+  {% if total_annual_saving %}
+  <div class="stat-box">
+    <div class="number">{{ total_annual_saving }}</div>
+    <div class="label">Est. Annual Saving</div>
+  </div>
+  {% endif %}
+  {% if total_backdated %}
+  <div class="stat-box amber">
+    <div class="number">{{ total_backdated }}</div>
+    <div class="label">Backdated Claims</div>
+  </div>
+  {% endif %}
 </div>
 
-<!-- GRANT DETAILS BY CATEGORY -->
+{% if ai_summary %}
+<h3 class="subsection">Your Personalised Analysis</h3>
+<div class="ai-summary">
+  {% for paragraph in ai_summary.split('\n\n') %}
+  <p>{{ paragraph }}</p>
+  {% endfor %}
+</div>
+{% endif %}
+
+<h3 class="subsection">Top Grants by Value</h3>
+{% for g in grants[:5] %}
+<p style="font-size: 10pt; margin: 4px 0;">
+  <strong>{{ g.name }}</strong> — {{ g.amount_description or 'Variable amount' }}
+  {% if g.savings_note %}<span style="color: #16a34a; font-size: 9pt;"> ({{ g.savings_note }})</span>{% endif %}
+  <span class="match-badge {% if g.match_type == 'eligible' %}badge-eligible{% elif g.match_type == 'likely' %}badge-likely{% else %}badge-possible{% endif %}">
+    {{ g.match_type }}
+  </span>
+</p>
+{% endfor %}
+
+<!-- ═══ BACKDATED CLAIMS ═══ -->
+{% if total_backdated %}
+<div class="page-break"></div>
+<h2 class="section-title">Backdated Claims — Money You May Be Owed</h2>
+<p style="font-size: 10pt; color: #475569; margin-bottom: 12px;">
+  Many Irish tax credits can be claimed retrospectively for up to <strong>4 previous years</strong>.
+  If you haven't been claiming these credits, you could be owed a significant refund.
+  Below is a summary of what you may be able to backdate.
+</p>
+
+<table class="backdate-table">
+  <thead>
+    <tr>
+      <th>Tax Credit / Relief</th>
+      <th>Annual Value</th>
+      <th style="text-align: right;">Backdated (est.)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for g in grants if g.estimated_backdated_saving %}
+    <tr>
+      <td>{{ g.name }}</td>
+      <td>€{{ "%.0f"|format(g.estimated_annual_saving or 0) }}</td>
+      <td class="amount">€{{ "%.0f"|format(g.estimated_backdated_saving) }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2">Total potential backdated refund</td>
+      <td class="amount">{{ total_backdated }}</td>
+    </tr>
+  </tfoot>
+</table>
+
+<p style="font-size: 9pt; color: #64748b; margin-top: 8px;">
+  <em>To claim backdated credits, log in to Revenue myAccount and submit an Income Tax Return
+  for each year you want to claim. Revenue will process refunds directly to your bank account.</em>
+</p>
+{% endif %}
+
+<!-- ═══ GRANT DETAILS BY CATEGORY ═══ -->
+<div class="page-break"></div>
+<h2 class="section-title">Detailed Grant Results</h2>
+
 {% for cat_key, cat_grants in categories.items() %}
 <div class="category-section">
-  <h2 class="category-title">{{ category_labels.get(cat_key, cat_key) }}</h2>
+  <h3 class="category-title">{{ category_labels.get(cat_key, cat_key) }}</h3>
   {% for g in cat_grants %}
   <div class="grant-card">
     <div class="grant-header">
@@ -102,23 +206,46 @@
       <span class="grant-amount">{{ g.amount_description or 'Variable' }}</span>
     </div>
     <p class="description">{{ g.short_description }}</p>
+    {% if g.savings_note %}<p class="savings-line">{{ g.savings_note }}</p>{% endif %}
     {% if g.notes %}<p class="notes">{{ g.notes }}</p>{% endif %}
-    {% if g.source_url %}<p><a class="link" href="{{ g.source_url }}">Official information →</a></p>{% endif %}
-    {% if g.application_url %}<p><a class="link" href="{{ g.application_url }}">Apply here →</a></p>{% endif %}
+    {% if g.source_url %}<a class="link" href="{{ g.source_url }}">Official information →</a>{% endif %}
+    {% if g.application_url %} &nbsp;|&nbsp; <a class="link" href="{{ g.application_url }}">Apply here →</a>{% endif %}
   </div>
   {% endfor %}
 </div>
 {% endfor %}
 
-<!-- FOOTER / DISCLAIMER -->
+<!-- ═══ HOW TO CLAIM — REVENUE myACCOUNT GUIDE ═══ -->
+{% if claimable_grants %}
+<div class="page-break"></div>
+<h2 class="section-title">How to Claim — Revenue myAccount Guide</h2>
+<p style="font-size: 10pt; color: #475569; margin-bottom: 16px;">
+  Below are step-by-step instructions for claiming each tax credit and relief on
+  <strong>Revenue myAccount</strong> (revenue.ie). Log in with your PPSN and password,
+  or register if you haven't already.
+</p>
+
+<div class="claim-section">
+  {% for g in claimable_grants %}
+  <div class="claim-card">
+    <div class="claim-title">{{ g.name }}{% if g.estimated_annual_saving %} — saves €{{ "%.0f"|format(g.estimated_annual_saving) }}/year{% endif %}</div>
+    <div class="claim-steps">{{ g.how_to_claim }}</div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<!-- ═══ NEXT STEPS & DISCLAIMER ═══ -->
 <div class="footer">
-  <h3 style="font-size: 13pt; color: #334155; margin-bottom: 8px;">Next Steps</h3>
-  <ol style="font-size: 10pt; color: #475569; padding-left: 20px; margin-bottom: 16px;">
-    <li>Start with the highest-value grants marked as "eligible"</li>
-    <li>Gather the required documents for each application</li>
-    <li>Apply online where possible — most applications take 15-30 minutes</li>
-    <li>Set up grant alerts at grantfinder.ie to stay updated on new schemes</li>
+  <h3 style="font-size: 13pt; color: #334155; margin-bottom: 8px;">Recommended Next Steps</h3>
+  <ol style="font-size: 10pt; color: #475569; padding-left: 20px; margin-bottom: 16px; line-height: 1.8;">
+    <li><strong>Start with backdated claims</strong> — these are refunds for money you've already overpaid in tax</li>
+    <li><strong>Claim your tax credits</strong> — log in to Revenue myAccount and follow the instructions above</li>
+    <li><strong>Apply for grants</strong> — use the application links provided for each grant</li>
+    <li><strong>Keep receipts</strong> — retain all medical, rent, and expense receipts for 6 years</li>
+    <li><strong>Review annually</strong> — run a new scan each year to catch new schemes and changes</li>
   </ol>
+
   <p class="disclaimer">
     <strong>Disclaimer:</strong> This report is for informational purposes only and does not constitute
     financial, tax, or legal advice. Grant eligibility is determined by the issuing body and may be

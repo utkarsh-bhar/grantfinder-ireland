@@ -42,8 +42,9 @@ class Settings(BaseSettings):
     AWS_S3_BUCKET: str = "grantfinder-reports"
     AWS_REGION: str = "eu-west-1"
 
-    # Email (SendGrid)
+    # Email
     SENDGRID_API_KEY: str = ""
+    RESEND_API_KEY: str = ""
     FROM_EMAIL: str = "hello@grantfinder.ie"
 
     # Google OAuth

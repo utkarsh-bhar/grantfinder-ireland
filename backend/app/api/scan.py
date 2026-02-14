@@ -12,6 +12,8 @@ from app.models.profile import UserProfile
 from app.models.grant import Grant
 from app.models.scan_result import ScanResult, ScanResultGrant
 from app.engine.matcher import GrantMatcher, MatchResult
+from app.engine.savings import calculate_savings
+from app.engine.ai_summary import generate_ai_summary
 from app.schemas.scan import (
     AnonymousScanRequest,
     ScanResponse,
@@ -21,6 +23,7 @@ from app.schemas.scan import (
 )
 from app.utils.auth import get_current_user, get_optional_user
 from app.utils.validators import GRANT_CATEGORIES
+from app.engine.how_to_claim import HOW_TO_CLAIM
 
 router = APIRouter(prefix="/api/v1/scan", tags=["Scan"])
 matcher = GrantMatcher()
@@ -38,14 +41,28 @@ def _run_scan(profile_dict: dict, db: Session) -> list[MatchResult]:
 
 def _build_response(
     results: list[MatchResult],
+    profile_dict: dict,
     scan_id: Optional[str] = None,
+    include_ai_summary: bool = True,
 ) -> ScanResponse:
     """Convert MatchResult list into a ScanResponse grouped by category."""
     category_map = dict(GRANT_CATEGORIES)
     cat_buckets: dict[str, list[GrantMatchResponse]] = {}
     total_value = 0.0
+    income_bracket = profile_dict.get("income_bracket")
+
+    grant_dicts_for_ai = []
 
     for r in results:
+        # Calculate precise savings
+        savings = calculate_savings(
+            slug=r.slug,
+            max_amount=r.max_amount,
+            amount_description=r.amount_description or "",
+            income_bracket=income_bracket,
+            profile=profile_dict,
+        )
+
         grant_resp = GrantMatchResponse(
             grant_id=r.grant_id,
             name=r.grant_name,
@@ -61,10 +78,24 @@ def _build_response(
             notes=r.notes,
             is_locked=False,
             category=r.category,
+            estimated_annual_saving=savings["estimated_annual_saving"],
+            estimated_backdated_saving=savings["estimated_backdated_saving"],
+            savings_note=savings["savings_note"],
+            how_to_claim=HOW_TO_CLAIM.get(r.slug, ""),
         )
         cat_buckets.setdefault(r.category, []).append(grant_resp)
         if r.max_amount:
             total_value += r.max_amount
+
+        # For AI summary
+        grant_dicts_for_ai.append({
+            "name": r.grant_name,
+            "match_type": r.match_type.value,
+            "max_amount": r.max_amount,
+            "amount_description": r.amount_description or "",
+            "category": r.category,
+            "savings_note": savings["savings_note"],
+        })
 
     categories = [
         CategoryResult(
@@ -76,15 +107,19 @@ def _build_response(
         )
         for cat, grants_list in cat_buckets.items()
     ]
-    # Sort categories by total_value descending
     categories.sort(key=lambda c: c.total_value, reverse=True)
+
+    # Generate AI summary
+    summary = ""
+    if include_ai_summary:
+        summary = generate_ai_summary(profile_dict, grant_dicts_for_ai, total_value)
 
     return ScanResponse(
         scan_id=scan_id,
         total_grants_found=len(results),
         total_potential_value=total_value,
         categories=categories,
-        summary="",  # Filled by AI summary if enabled
+        summary=summary,
         generated_at=datetime.now(timezone.utc).isoformat(),
     )
 
@@ -108,7 +143,7 @@ def anonymous_scan(body: AnonymousScanRequest, db: Session = Depends(get_db)):
         profile_dict["has_child_under_7"] = youngest < 7
 
     results = _run_scan(profile_dict, db)
-    return _build_response(results)
+    return _build_response(results, profile_dict)
 
 
 @router.post("", response_model=ScanResponse)
@@ -129,7 +164,7 @@ def run_scan(
     profile_dict = profile.to_dict()
     results = _run_scan(profile_dict, db)
 
-    # Save scan result
+    # Save scan result (before building response so we have scan_id)
     total_value = sum(r.max_amount or 0 for r in results)
     scan = ScanResult(
         user_id=user.id,
@@ -156,7 +191,7 @@ def run_scan(
     db.commit()
     db.refresh(scan)
 
-    return _build_response(results, scan_id=str(scan.id))
+    return _build_response(results, profile_dict, scan_id=str(scan.id))
 
 
 @router.get("/results", response_model=ScanResponse)

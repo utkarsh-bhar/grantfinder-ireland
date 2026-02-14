@@ -93,6 +93,8 @@ export const reportsAPI = {
     api.post('/reports/download', profileData, {
       responseType: 'blob',
     }),
+  emailPDF: (profileData: ProfileData, email: string) =>
+    api.post('/reports/email', { profile: profileData, email }),
 };
 
 // ─── Chat ───────────────────────────────────────────────────────────────────

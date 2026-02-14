@@ -17,6 +17,7 @@ weasyprint>=63.0
 jinja2>=3.1.5
 boto3>=1.36.0
 sendgrid>=6.11.0
+resend>=2.0.0
 stripe>=11.4.0
 python-slugify>=8.0.4
 email-validator>=2.1.0
