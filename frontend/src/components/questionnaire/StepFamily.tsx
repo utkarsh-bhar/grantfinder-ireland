@@ -88,6 +88,64 @@ export default function StepFamily() {
             ))}
           </div>
         </div>
+
+        {/* Dependent Relatives */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Do you financially support a dependent relative?
+          </label>
+          <p className="text-xs text-gray-400 mb-2">
+            e.g. a parent aged 65+, a widowed parent, or a relative unable to support themselves due to age/infirmity
+          </p>
+          <div className="flex gap-3">
+            {[true, false].map((val) => (
+              <button
+                key={String(val)}
+                onClick={() => updateProfile({ has_dependent_relatives: val, ...(val ? {} : { num_dependent_relatives: undefined }) })}
+                className={`select-card flex-1 py-3 ${profile.has_dependent_relatives === val ? 'select-card-active' : ''}`}
+              >
+                <span className="text-sm font-medium">{val ? 'Yes' : 'No'}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {profile.has_dependent_relatives && (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">How many dependent relatives?</label>
+            <input
+              type="number"
+              className="input"
+              min={1}
+              max={10}
+              value={profile.num_dependent_relatives || ''}
+              onChange={(e) => updateProfile({ num_dependent_relatives: e.target.value ? Number(e.target.value) : undefined })}
+            />
+          </div>
+        )}
+
+        {/* Incapacitated Child */}
+        {profile.has_children && (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Does any of your children have a permanent incapacity (physical or mental)?
+            </label>
+            <p className="text-xs text-gray-400 mb-2">
+              This may qualify you for the Incapacitated Child Tax Credit of €3,800 per child
+            </p>
+            <div className="flex gap-3">
+              {[true, false].map((val) => (
+                <button
+                  key={String(val)}
+                  onClick={() => updateProfile({ has_incapacitated_child: val })}
+                  className={`select-card flex-1 py-3 ${profile.has_incapacitated_child === val ? 'select-card-active' : ''}`}
+                >
+                  <span className="text-sm font-medium">{val ? 'Yes' : 'No'}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

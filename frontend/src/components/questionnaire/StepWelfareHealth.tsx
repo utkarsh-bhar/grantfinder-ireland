@@ -140,6 +140,43 @@ export default function StepWelfareHealth() {
             ))}
           </div>
         </div>
+
+        {/* Visual Impairment */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Are you or your spouse blind or severely visually impaired?
+          </label>
+          <div className="flex gap-3">
+            {[true, false].map((val) => (
+              <button
+                key={String(val)}
+                onClick={() => updateProfile({ is_visually_impaired: val })}
+                className={`select-card flex-1 py-3 ${profile.is_visually_impaired === val ? 'select-card-active' : ''}`}
+              >
+                <span className="text-sm font-medium">{val ? 'Yes' : 'No'}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Nursing Home Expenses */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Are you paying nursing home fees for yourself or a family member?
+          </label>
+          <p className="text-xs text-gray-400 mb-2">You can claim tax relief at your highest rate on nursing home fees</p>
+          <div className="flex gap-3">
+            {[true, false].map((val) => (
+              <button
+                key={String(val)}
+                onClick={() => updateProfile({ has_nursing_home_expenses: val })}
+                className={`select-card flex-1 py-3 ${profile.has_nursing_home_expenses === val ? 'select-card-active' : ''}`}
+              >
+                <span className="text-sm font-medium">{val ? 'Yes' : 'No'}</span>
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

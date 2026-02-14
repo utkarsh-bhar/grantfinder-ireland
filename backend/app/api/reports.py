@@ -1,94 +1,78 @@
-"""PDF report generation and download endpoints."""
+"""PDF report generation and download endpoints — free for all users."""
 
-from fastapi import APIRouter, Depends, HTTPException
-from fastapi.responses import RedirectResponse
+from datetime import datetime, timezone
+
+from fastapi import APIRouter, Depends
+from fastapi.responses import Response
 from sqlalchemy.orm import Session, joinedload
 
 from app.database import get_db
-from app.models.user import User
-from app.models.scan_result import ScanResult, ScanResultGrant
-from app.reports.generator import generate_report
-from app.utils.auth import get_current_user
-from app.utils.s3 import get_presigned_url
+from app.models.grant import Grant
+from app.engine.matcher import GrantMatcher
+from app.reports.generator import generate_report_bytes
+from app.schemas.scan import AnonymousScanRequest
 
 router = APIRouter(prefix="/api/v1/reports", tags=["Reports"])
+matcher = GrantMatcher()
 
 
-@router.post("/generate")
-def generate_pdf_report(
-    scan_id: str | None = None,
-    user: User = Depends(get_current_user),
+@router.post("/download")
+def download_pdf_report(
+    body: AnonymousScanRequest,
     db: Session = Depends(get_db),
 ):
-    """Generate a full PDF report for the user's scan results."""
-    if user.plan not in ("report", "premium"):
-        raise HTTPException(403, "PDF reports require a paid plan")
+    """
+    Generate and download a PDF report from scan profile data.
+    No authentication required — completely free.
+    """
+    profile_dict = body.model_dump(exclude_unset=True)
 
-    # Get the scan result
-    if scan_id:
-        scan = (
-            db.query(ScanResult)
-            .filter(ScanResult.id == scan_id, ScanResult.user_id == user.id)
-            .first()
-        )
-    else:
-        scan = (
-            db.query(ScanResult)
-            .filter(ScanResult.user_id == user.id)
-            .order_by(ScanResult.created_at.desc())
-            .first()
-        )
+    # Compute convenience flags (same as scan endpoint)
+    age = profile_dict.get("age")
+    if age is not None:
+        profile_dict["is_over_65"] = age >= 65
+        profile_dict["is_over_66"] = age >= 66
+        profile_dict["is_over_70"] = age >= 70
+    youngest = profile_dict.get("youngest_child_age")
+    if youngest is not None:
+        profile_dict["has_child_under_7"] = youngest < 7
 
-    if not scan:
-        raise HTTPException(404, "No scan results found")
-
-    # Load matched grants
-    result_grants = (
-        db.query(ScanResultGrant)
-        .filter(ScanResultGrant.scan_result_id == scan.id)
-        .options(joinedload(ScanResultGrant.grant))
-        .order_by(ScanResultGrant.sort_order)
+    # Run the matcher
+    grants = (
+        db.query(Grant)
+        .filter(Grant.is_active == True)  # noqa: E712
+        .options(joinedload(Grant.eligibility_rules))
         .all()
     )
+    results = matcher.match(profile_dict, grants)
 
+    # Build grant dicts for the report template
     matched_grants = []
-    for rg in result_grants:
-        g = rg.grant
+    for r in results:
         matched_grants.append({
-            "name": g.name,
-            "category": g.category,
-            "match_type": rg.match_type,
-            "match_score": float(rg.match_score) if rg.match_score else 0,
-            "max_amount": float(g.max_amount) if g.max_amount else None,
-            "amount_description": g.amount_description or "",
-            "short_description": g.short_description,
-            "source_url": g.source_url,
-            "application_url": g.application_url,
-            "notes": rg.notes or "",
+            "name": r.grant_name,
+            "slug": r.slug,
+            "category": r.category,
+            "match_type": r.match_type.value,
+            "match_score": r.match_score,
+            "max_amount": r.max_amount,
+            "amount_description": r.amount_description or "",
+            "short_description": r.short_description,
+            "source_url": r.source_url,
+            "application_url": r.application_url,
+            "notes": r.notes,
         })
 
     # Generate the PDF
-    s3_key = generate_report(user, scan, matched_grants)
-    scan.report_url = s3_key
-    db.commit()
+    pdf_bytes = generate_report_bytes(matched_grants)
 
-    return {"report_url": s3_key, "scan_id": str(scan.id)}
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    filename = f"GrantFinder_Report_{timestamp}.pdf"
 
-
-@router.get("/{report_id}/download")
-def download_report(
-    report_id: str,
-    user: User = Depends(get_current_user),
-    db: Session = Depends(get_db),
-):
-    """Download a PDF report via pre-signed S3 URL."""
-    scan = (
-        db.query(ScanResult)
-        .filter(ScanResult.id == report_id, ScanResult.user_id == user.id)
-        .first()
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={
+            "Content-Disposition": f'attachment; filename="{filename}"',
+        },
     )
-    if not scan or not scan.report_url:
-        raise HTTPException(404, "Report not found")
-
-    url = get_presigned_url(scan.report_url)
-    return RedirectResponse(url=url)

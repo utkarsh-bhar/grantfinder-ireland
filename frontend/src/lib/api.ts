@@ -86,6 +86,15 @@ export const grantsAPI = {
   documents: (slug: string) => api.get(`/grants/${slug}/documents`),
 };
 
+// ─── Reports ─────────────────────────────────────────────────────────────────
+
+export const reportsAPI = {
+  downloadPDF: (profileData: ProfileData) =>
+    api.post('/reports/download', profileData, {
+      responseType: 'blob',
+    }),
+};
+
 // ─── Chat ───────────────────────────────────────────────────────────────────
 
 export const chatAPI = {

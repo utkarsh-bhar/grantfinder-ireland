@@ -5,17 +5,29 @@ from datetime import datetime
 
 from jinja2 import Environment, FileSystemLoader
 
-from app.config import get_settings
-from app.utils.s3 import upload_pdf
 from app.utils.validators import GRANT_CATEGORIES
-
-settings = get_settings()
 
 TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), "templates")
 
 
-def generate_report(user, scan_result, matched_grants: list[dict]) -> str:
-    """Generate a PDF report and upload to S3. Returns S3 key."""
+def generate_report_bytes(matched_grants: list[dict], user_label: str = "GrantFinder User") -> bytes:
+    """
+    Generate a PDF report and return it as bytes.
+
+    Parameters
+    ----------
+    matched_grants : list[dict]
+        Each dict should have: name, category, match_type, match_score,
+        max_amount, amount_description, short_description, source_url,
+        application_url, notes, slug.
+    user_label : str
+        Label to show on the cover page (email or "GrantFinder User").
+
+    Returns
+    -------
+    bytes
+        The PDF file content.
+    """
     env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
     template = env.get_template("grant_report.html")
 
@@ -29,7 +41,7 @@ def generate_report(user, scan_result, matched_grants: list[dict]) -> str:
     total_value = sum(g.get("max_amount") or 0 for g in matched_grants)
 
     html_content = template.render(
-        user_email=user.email or "GrantFinder User",
+        user_email=user_label,
         generated_date=datetime.now().strftime("%d %B %Y"),
         total_grants=len(matched_grants),
         total_value=f"€{total_value:,.0f}",
@@ -38,25 +50,11 @@ def generate_report(user, scan_result, matched_grants: list[dict]) -> str:
         grants=matched_grants,
     )
 
-    # Try WeasyPrint, fall back to returning HTML key
     try:
         from weasyprint import HTML
-
         pdf_bytes = HTML(string=html_content).write_pdf()
     except ImportError:
-        # WeasyPrint not installed — save as HTML instead
+        # WeasyPrint not installed — return HTML as fallback
         pdf_bytes = html_content.encode("utf-8")
 
-    s3_key = f"reports/{user.id}/{scan_result.id}.pdf"
-
-    if settings.AWS_ACCESS_KEY_ID:
-        url = upload_pdf(s3_key, pdf_bytes)
-        return s3_key
-    else:
-        # Local dev — write to disk
-        local_path = os.path.join("data", "reports")
-        os.makedirs(local_path, exist_ok=True)
-        filepath = os.path.join(local_path, f"{scan_result.id}.pdf")
-        with open(filepath, "wb") as f:
-            f.write(pdf_bytes)
-        return filepath
+    return pdf_bytes

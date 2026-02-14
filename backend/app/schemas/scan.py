@@ -16,11 +16,16 @@ class AnonymousScanRequest(BaseModel):
     has_solar_pv: Optional[bool] = None
     has_heat_pump: Optional[bool] = None
     is_first_time_buyer: Optional[bool] = None
+    has_mortgage: Optional[bool] = None
+    pays_rent: Optional[bool] = None
     has_children: Optional[bool] = None
     num_children: Optional[int] = None
     youngest_child_age: Optional[int] = None
     is_lone_parent: Optional[bool] = None
     is_carer: Optional[bool] = None
+    has_dependent_relatives: Optional[bool] = None
+    num_dependent_relatives: Optional[int] = None
+    has_incapacitated_child: Optional[bool] = None
     employment_status: Optional[str] = None
     income_bracket: Optional[str] = None
     is_freelancer: Optional[bool] = None
@@ -30,6 +35,8 @@ class AnonymousScanRequest(BaseModel):
     has_disability: Optional[bool] = None
     household_disability: Optional[bool] = None
     has_medical_expenses: Optional[bool] = None
+    is_visually_impaired: Optional[bool] = None
+    has_nursing_home_expenses: Optional[bool] = None
     is_student: Optional[bool] = None
     planning_education: Optional[bool] = None
     owns_business: Optional[bool] = None

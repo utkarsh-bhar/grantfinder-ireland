@@ -16,6 +16,8 @@ export interface ProfileData {
   has_solar_pv?: boolean;
   has_heat_pump?: boolean;
   is_first_time_buyer?: boolean;
+  has_mortgage?: boolean;
+  pays_rent?: boolean;
 
   // Step 3: Family
   has_children?: boolean;
@@ -23,6 +25,9 @@ export interface ProfileData {
   youngest_child_age?: number;
   is_lone_parent?: boolean;
   is_carer?: boolean;
+  has_dependent_relatives?: boolean;
+  num_dependent_relatives?: number;
+  has_incapacitated_child?: boolean;
 
   // Step 4: Work & Income
   employment_status?: 'employed' | 'self_employed' | 'unemployed' | 'retired' | 'student' | 'homemaker';
@@ -36,6 +41,8 @@ export interface ProfileData {
   has_disability?: boolean;
   household_disability?: boolean;
   has_medical_expenses?: boolean;
+  is_visually_impaired?: boolean;
+  has_nursing_home_expenses?: boolean;
 
   // Step 6: Education & Business
   is_student?: boolean;

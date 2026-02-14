@@ -1027,7 +1027,8 @@
     "is_always_open": true,
     "typical_processing": "Immediate (applied to tax return)",
     "eligibility_rules": [
-      {"rule_group": 0, "field": "home_status", "operator": "eq", "value": "renter", "description": "You must be renting your home", "is_mandatory": true}
+      {"rule_group": 0, "field": "home_status", "operator": "in", "value": "renter,local_authority_tenant,living_with_family", "description": "You must be renting your home", "is_mandatory": true},
+      {"rule_group": 0, "field": "pays_rent", "operator": "is_true", "value": "true", "description": "You must be paying rent", "is_mandatory": true}
     ],
     "steps": [
       {"step_number": 1, "title": "Gather rental details", "description": "You need your landlord's name, address, and the amount of rent paid.", "url": null},
@@ -1560,6 +1561,300 @@
     "documents": [
       {"document_name": "Business details", "description": "Business registration and trading history", "is_required": true},
       {"document_name": "Quote for online project", "description": "Quote from web developer or digital agency", "is_required": true}
+    ]
+  },
+  {
+    "name": "Dependent Relative Tax Credit",
+    "slug": "dependent-relative-tax-credit",
+    "short_description": "Tax credit of €305 per year for each qualifying dependent relative you support financially.",
+    "long_description": "The Dependent Relative Tax Credit is worth €305 per qualifying relative per year. You can claim it if you maintain a relative at your own expense, including a widowed parent, a parent aged 65 or over, or a relative incapacitated by old age or infirmity. The relative's income must be below €18,028 per year. You can backdate claims for up to 4 years.",
+    "category": "tax_relief",
+    "max_amount": 305.00,
+    "amount_description": "€305 per qualifying relative",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/health-and-age/dependant-relative-tax-credit/index.aspx",
+    "application_url": "https://www.revenue.ie/en/online-services/services/manage-your-record/claim-a-tax-credit.aspx",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Immediate via myAccount",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "has_dependent_relatives", "operator": "is_true", "value": "true", "description": "You must financially support a dependent relative (parent aged 65+, widowed parent, or incapacitated relative)", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check eligibility", "description": "Confirm your dependent relative's income is below €18,028 per year and you maintain them at your own expense.", "url": null},
+      {"step_number": 2, "title": "Gather documentation", "description": "Collect proof of financial support and your relative's income details.", "url": null},
+      {"step_number": 3, "title": "Claim via myAccount", "description": "Log in to Revenue myAccount, go to 'Manage Your Tax' and claim the Dependent Relative Tax Credit.", "url": "https://www.ros.ie/myaccount-web/sign_in.html"}
+    ],
+    "documents": [
+      {"document_name": "Proof of financial support", "description": "Bank transfers, receipts, or other evidence of maintaining the relative", "is_required": true},
+      {"document_name": "Relative's income details", "description": "Evidence that the relative's income is below €18,028", "is_required": true}
+    ]
+  },
+  {
+    "name": "Age Tax Credit",
+    "slug": "age-tax-credit",
+    "short_description": "Tax credit of €245 (individual) or €490 (married couple) if you or your spouse are 65 or over.",
+    "long_description": "The Age Tax Credit is available to anyone aged 65 or over. It provides a direct reduction in your income tax bill of €245 for a single person or €490 for a married couple where either spouse is 65+. This credit is in addition to your personal tax credit and is automatically applied once Revenue is aware of your age.",
+    "category": "tax_relief",
+    "max_amount": 490.00,
+    "amount_description": "€245 (single) / €490 (couple)",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/health-and-age/age-tax-credit/index.aspx",
+    "application_url": "https://www.revenue.ie/en/online-services/services/manage-your-record/claim-a-tax-credit.aspx",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Automatic",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "age", "operator": "gte", "value": "65", "description": "You must be aged 65 or over", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check your tax credits", "description": "Log in to Revenue myAccount and check if the Age Tax Credit is already applied to your record.", "url": "https://www.ros.ie/myaccount-web/sign_in.html"},
+      {"step_number": 2, "title": "Claim if not applied", "description": "If not automatically applied, contact Revenue or update your tax credits via myAccount.", "url": null}
+    ],
+    "documents": []
+  },
+  {
+    "name": "Blind Person's Tax Credit",
+    "slug": "blind-persons-tax-credit",
+    "short_description": "Tax credit of €1,950 if you are blind or visually impaired, or €3,900 for a married couple where both are blind.",
+    "long_description": "The Blind Person's Tax Credit provides a significant tax reduction for people who are blind or have a severe visual impairment. The credit is €1,950 for one person or €3,900 where both spouses are blind. You need a certificate from an ophthalmologist to claim this credit. A guide dog allowance of €825 is also available in addition to this credit.",
+    "category": "tax_relief",
+    "max_amount": 1950.00,
+    "amount_description": "€1,950 (single) / €3,900 (couple)",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/health-and-age/blind-persons-tax-credit/index.aspx",
+    "application_url": "https://www.revenue.ie/en/online-services/services/manage-your-record/claim-a-tax-credit.aspx",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "2-4 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "is_visually_impaired", "operator": "is_true", "value": "true", "description": "You or your spouse must be blind or have a severe visual impairment", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Get medical certificate", "description": "Obtain a certificate from your ophthalmologist confirming blindness or severe visual impairment.", "url": null},
+      {"step_number": 2, "title": "Submit to Revenue", "description": "Send the certificate to Revenue or upload via myAccount to claim the credit.", "url": "https://www.ros.ie/myaccount-web/sign_in.html"}
+    ],
+    "documents": [
+      {"document_name": "Ophthalmologist certificate", "description": "Medical certificate confirming blindness or severe visual impairment", "is_required": true}
+    ]
+  },
+  {
+    "name": "Widowed Person or Surviving Civil Partner Tax Credit",
+    "slug": "widowed-person-tax-credit",
+    "short_description": "Tax credit of €2,540 for widowed persons or surviving civil partners without dependent children.",
+    "long_description": "If you are widowed or a surviving civil partner and do not have dependent children, you are entitled to the Widowed Person or Surviving Civil Partner Tax Credit of €2,540 per year. This replaces the married person's tax credit and is applied from the year following the year of bereavement. You must not be cohabiting or in a new civil partnership.",
+    "category": "tax_relief",
+    "max_amount": 2540.00,
+    "amount_description": "€2,540 per year",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/life-events-and-personal-circumstances/death-and-bereavement/widowed-person-or-surviving-civil-partner/index.aspx",
+    "application_url": "https://www.revenue.ie/en/online-services/services/manage-your-record/claim-a-tax-credit.aspx",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Immediate via myAccount",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "marital_status", "operator": "eq", "value": "widowed", "description": "You must be widowed or a surviving civil partner", "is_mandatory": true},
+      {"rule_group": 0, "field": "has_children", "operator": "is_false", "value": "false", "description": "This credit is for widowed persons without dependent children", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Notify Revenue", "description": "Inform Revenue of your bereavement by updating your personal details on myAccount.", "url": "https://www.ros.ie/myaccount-web/sign_in.html"},
+      {"step_number": 2, "title": "Credit applied", "description": "The Widowed Person Tax Credit will be applied to your tax record automatically.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Death certificate", "description": "Death certificate of your spouse or civil partner", "is_required": true}
+    ]
+  },
+  {
+    "name": "Widowed Parent Tax Credit",
+    "slug": "widowed-parent-tax-credit",
+    "short_description": "Additional tax credit of up to €3,600 for widowed parents with dependent children, lasting 5 years after bereavement.",
+    "long_description": "The Widowed Parent Tax Credit is available for 5 years following the year of bereavement. It is in addition to the Widowed Person Tax Credit and decreases each year: Year 1: €3,600, Year 2: €3,150, Year 3: €2,700, Year 4: €2,250, Year 5: €1,800. You must have at least one dependent child living with you and must not have remarried or be cohabiting.",
+    "category": "tax_relief",
+    "max_amount": 3600.00,
+    "amount_description": "Up to €3,600 (year 1, decreasing over 5 years)",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/children/widowed-parent-tax-credit/index.aspx",
+    "application_url": "https://www.revenue.ie/en/online-services/services/manage-your-record/claim-a-tax-credit.aspx",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Immediate via myAccount",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "marital_status", "operator": "eq", "value": "widowed", "description": "You must be widowed or a surviving civil partner", "is_mandatory": true},
+      {"rule_group": 0, "field": "has_children", "operator": "is_true", "value": "true", "description": "You must have dependent children living with you", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Notify Revenue", "description": "Update your personal details on Revenue myAccount to reflect your bereavement.", "url": "https://www.ros.ie/myaccount-web/sign_in.html"},
+      {"step_number": 2, "title": "Claim the credit", "description": "The credit is applied automatically for 5 years if you have qualifying dependent children.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Death certificate", "description": "Death certificate of your spouse or civil partner", "is_required": true},
+      {"document_name": "Proof of dependent children", "description": "Child Benefit records or children's birth certificates", "is_required": true}
+    ]
+  },
+  {
+    "name": "Incapacitated Child Tax Credit",
+    "slug": "incapacitated-child-tax-credit",
+    "short_description": "Tax credit of €3,800 per year for each child who is permanently incapacitated.",
+    "long_description": "The Incapacitated Child Tax Credit of €3,800 per year is available to parents of children who are permanently incapacitated, either physically or mentally, and who became so before age 21 or while in full-time education. The child must be unable to maintain themselves. You can claim for multiple incapacitated children, and the credit can be backdated for up to 4 years.",
+    "category": "tax_relief",
+    "max_amount": 3800.00,
+    "amount_description": "€3,800 per qualifying child",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/children/incapacitated-child-credit/index.aspx",
+    "application_url": "https://www.revenue.ie/en/online-services/services/manage-your-record/claim-a-tax-credit.aspx",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-8 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "has_incapacitated_child", "operator": "is_true", "value": "true", "description": "You must have a child who is permanently incapacitated physically or mentally", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Get medical certification", "description": "Have your child's doctor complete the Incapacitated Child Tax Credit claim form (IC1).", "url": null},
+      {"step_number": 2, "title": "Submit claim", "description": "Submit the completed IC1 form to Revenue via myAccount or by post.", "url": "https://www.ros.ie/myaccount-web/sign_in.html"}
+    ],
+    "documents": [
+      {"document_name": "Form IC1 (medical certification)", "description": "Completed by a medical practitioner confirming permanent incapacity", "is_required": true},
+      {"document_name": "Child's birth certificate", "description": "To confirm your relationship to the child", "is_required": true}
+    ]
+  },
+  {
+    "name": "Personal Tax Credit",
+    "slug": "personal-tax-credit",
+    "short_description": "Universal tax credit of €2,000 for every individual taxpayer, or €4,000 for married/civil partner couples.",
+    "long_description": "The Personal Tax Credit is the most basic tax credit in Ireland, available to every taxpayer. It provides €2,000 per year for single, widowed, or separated persons, and €4,000 for married couples or civil partners who are jointly assessed. This credit is automatically applied to your tax record and directly reduces the amount of income tax you owe.",
+    "category": "tax_relief",
+    "max_amount": 2000.00,
+    "amount_description": "€2,000 (single) / €4,000 (couple)",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/tax-relief-charts/index.aspx",
+    "application_url": null,
+    "application_method": "automatic",
+    "is_always_open": true,
+    "typical_processing": "Automatic",
+    "eligibility_rules": [],
+    "steps": [
+      {"step_number": 1, "title": "Automatic", "description": "This credit is automatically applied to all taxpayers. Check your Tax Credit Certificate on Revenue myAccount to confirm.", "url": "https://www.ros.ie/myaccount-web/sign_in.html"}
+    ],
+    "documents": []
+  },
+  {
+    "name": "Employee (PAYE) Tax Credit",
+    "slug": "paye-tax-credit",
+    "short_description": "Tax credit of €2,000 for all PAYE employees, automatically applied by Revenue.",
+    "long_description": "The Employee Tax Credit (also known as the PAYE Tax Credit) is worth €2,000 per year and is available to all individuals who pay tax through the PAYE system. Combined with the Personal Tax Credit, this means a typical employee saves €4,000 in tax annually. It is automatically applied to your tax record by Revenue.",
+    "category": "tax_relief",
+    "max_amount": 2000.00,
+    "amount_description": "€2,000 per year",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/jobs-and-pensions/tax-credits/index.aspx",
+    "application_url": null,
+    "application_method": "automatic",
+    "is_always_open": true,
+    "typical_processing": "Automatic",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "employment_status", "operator": "eq", "value": "employed", "description": "You must be a PAYE employee", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Automatic", "description": "This credit is automatically applied if you are employed. Check your Tax Credit Certificate to confirm.", "url": "https://www.ros.ie/myaccount-web/sign_in.html"}
+    ],
+    "documents": []
+  },
+  {
+    "name": "Earned Income Tax Credit",
+    "slug": "earned-income-tax-credit",
+    "short_description": "Tax credit of €2,000 for self-employed individuals and proprietary directors.",
+    "long_description": "The Earned Income Tax Credit is worth €2,000 per year and is the self-employed equivalent of the PAYE Tax Credit. It is available to sole traders, partners in partnerships, and proprietary directors who do not qualify for the PAYE Tax Credit. If you have both PAYE and self-employed income, the combined value of PAYE and Earned Income credits cannot exceed €2,000.",
+    "category": "tax_relief",
+    "max_amount": 2000.00,
+    "amount_description": "€2,000 per year",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/income-and-employment/earned-income-credit/index.aspx",
+    "application_url": null,
+    "application_method": "automatic",
+    "is_always_open": true,
+    "typical_processing": "Automatic",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "employment_status", "operator": "eq", "value": "self_employed", "description": "You must be self-employed or a proprietary director", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "File your return", "description": "Claim the Earned Income Credit when filing your annual income tax return (Form 11).", "url": "https://www.ros.ie/"}
+    ],
+    "documents": []
+  },
+  {
+    "name": "Mortgage Interest Tax Credit",
+    "slug": "mortgage-interest-tax-credit",
+    "short_description": "Tax credit for homeowners whose mortgage interest increased since 2022 — available 2023-2026.",
+    "long_description": "The Mortgage Interest Tax Credit was introduced in Budget 2024 to help homeowners struggling with rising interest rates. It applies to qualifying mortgage holders whose interest payments increased compared to 2022. The credit is 20% of the increase in interest paid, up to a maximum of €1,250 per property. Your outstanding mortgage balance must have been between €80,000 and €500,000 on 31 December 2022, and the property must be your principal private residence.",
+    "category": "tax_relief",
+    "max_amount": 1250.00,
+    "amount_description": "Up to €1,250 (20% of interest increase)",
+    "amount_type": "percentage",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/land-and-property/mortgage/index.aspx",
+    "application_url": "https://www.revenue.ie/en/online-services/services/manage-your-record/claim-a-tax-credit.aspx",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-8 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "has_mortgage", "operator": "is_true", "value": "true", "description": "You must have a mortgage on your principal private residence", "is_mandatory": true},
+      {"rule_group": 0, "field": "home_status", "operator": "eq", "value": "owner", "description": "You must be a homeowner", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check your mortgage balance", "description": "Confirm your outstanding mortgage balance was between €80,000 and €500,000 on 31 December 2022.", "url": null},
+      {"step_number": 2, "title": "Get interest statements", "description": "Obtain mortgage interest statements for 2022 and the claim year from your lender.", "url": null},
+      {"step_number": 3, "title": "Claim via Revenue", "description": "File a claim through Revenue myAccount or ROS with your mortgage interest details.", "url": "https://www.ros.ie/myaccount-web/sign_in.html"}
+    ],
+    "documents": [
+      {"document_name": "Mortgage interest certificate", "description": "Annual mortgage interest statement from your lender", "is_required": true},
+      {"document_name": "2022 mortgage statement", "description": "Statement showing your outstanding balance on 31 December 2022", "is_required": true}
+    ]
+  },
+  {
+    "name": "Nursing Home Expenses Tax Relief",
+    "slug": "nursing-home-expenses-tax-relief",
+    "short_description": "Income tax relief at your highest rate (up to 40%) on nursing home fees for you or a dependent.",
+    "long_description": "You can claim Income Tax relief on nursing home fees paid for yourself, a spouse, a relative, or a dependent. The relief is given at your highest rate of tax (20% or 40%), making it one of the most valuable tax reliefs available. The nursing home must provide 24-hour on-site nursing care. This includes fees paid for a parent or dependent relative in a nursing home.",
+    "category": "tax_relief",
+    "max_amount": null,
+    "amount_description": "Tax relief at your highest rate (20% or 40%)",
+    "amount_type": "percentage",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/health-and-age/health-expenses/nursing-home-and-additional-nursing-care-expenses.aspx",
+    "application_url": "https://www.revenue.ie/en/online-services/services/manage-your-record/claim-a-tax-credit.aspx",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-8 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "has_nursing_home_expenses", "operator": "is_true", "value": "true", "description": "You must be paying nursing home fees for yourself or a dependent", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Gather receipts", "description": "Collect all receipts and statements from the nursing home showing fees paid.", "url": null},
+      {"step_number": 2, "title": "Claim via myAccount", "description": "File your claim through Revenue myAccount under Health Expenses. Select 'Nursing Home' as the expense type.", "url": "https://www.ros.ie/myaccount-web/sign_in.html"}
+    ],
+    "documents": [
+      {"document_name": "Nursing home receipts", "description": "Receipts or statements showing nursing home fees paid", "is_required": true},
+      {"document_name": "Proof of nursing care", "description": "Confirmation that the nursing home provides 24-hour nursing care", "is_required": true}
     ]
   }
 ]

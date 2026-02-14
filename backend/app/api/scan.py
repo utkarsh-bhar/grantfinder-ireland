@@ -100,6 +100,7 @@ def anonymous_scan(body: AnonymousScanRequest, db: Session = Depends(get_db)):
     # Compute convenience flags
     age = profile_dict.get("age")
     if age is not None:
+        profile_dict["is_over_65"] = age >= 65
         profile_dict["is_over_66"] = age >= 66
         profile_dict["is_over_70"] = age >= 70
     youngest = profile_dict.get("youngest_child_age")

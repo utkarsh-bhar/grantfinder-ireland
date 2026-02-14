@@ -146,6 +146,48 @@ export default function StepYourHome() {
             ))}
           </div>
         </div>
+
+        {/* Mortgage */}
+        {isOwner && (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Do you have a mortgage on your home?
+            </label>
+            <p className="text-xs text-gray-400 mb-2">You may qualify for Mortgage Interest Tax Credit if your interest rates increased</p>
+            <div className="flex gap-3">
+              {[true, false].map((val) => (
+                <button
+                  key={String(val)}
+                  onClick={() => updateProfile({ has_mortgage: val })}
+                  className={`select-card flex-1 py-3 ${profile.has_mortgage === val ? 'select-card-active' : ''}`}
+                >
+                  <span className="text-sm font-medium">{val ? 'Yes' : 'No'}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Pays Rent */}
+        {isRenter && (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Do you pay rent for your accommodation?
+            </label>
+            <p className="text-xs text-gray-400 mb-2">You may be eligible for the Rent Tax Credit of up to €1,000 (€2,000 for couples)</p>
+            <div className="flex gap-3">
+              {[true, false].map((val) => (
+                <button
+                  key={String(val)}
+                  onClick={() => updateProfile({ pays_rent: val })}
+                  className={`select-card flex-1 py-3 ${profile.pays_rent === val ? 'select-card-active' : ''}`}
+                >
+                  <span className="text-sm font-medium">{val ? 'Yes' : 'No'}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

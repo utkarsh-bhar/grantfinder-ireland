@@ -1,12 +1,17 @@
 'use client';
 
+import { useState } from 'react';
 import { useScanStore } from '@/stores/scanStore';
+import { useProfileStore } from '@/stores/profileStore';
 import Link from 'next/link';
 import { formatCurrency, matchTypeBadge } from '@/lib/utils';
 import { CATEGORY_ICONS } from '@/types';
+import { reportsAPI } from '@/lib/api';
 
 export default function ResultsPage() {
   const { results, isScanning } = useScanStore();
+  const { profile } = useProfileStore();
+  const [isDownloading, setIsDownloading] = useState(false);
 
   if (isScanning) {
     return (
@@ -125,8 +130,61 @@ export default function ResultsPage() {
         ))}
       </div>
 
+      {/* ─── PDF Download ────────────────────────────────────────────── */}
+      <div className="mt-10 rounded-2xl border-2 border-emerald-200 bg-gradient-to-r from-emerald-50 to-brand-50 p-8 text-center">
+        <div className="flex items-center justify-center gap-3 mb-3">
+          <svg className="h-8 w-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+          </svg>
+          <h3 className="text-xl font-bold text-gray-900">Download Your PDF Report</h3>
+        </div>
+        <p className="text-sm text-gray-600 mb-5">
+          Get a comprehensive, shareable PDF with all your matched grants, eligibility details, application links, and next steps.
+        </p>
+        <button
+          onClick={async () => {
+            setIsDownloading(true);
+            try {
+              const response = await reportsAPI.downloadPDF(profile);
+              const blob = new Blob([response.data], { type: 'application/pdf' });
+              const url = window.URL.createObjectURL(blob);
+              const link = document.createElement('a');
+              link.href = url;
+              link.download = `GrantFinder_Report_${new Date().toISOString().slice(0, 10)}.pdf`;
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+              window.URL.revokeObjectURL(url);
+            } catch {
+              alert('There was an error generating your report. Please try again.');
+            } finally {
+              setIsDownloading(false);
+            }
+          }}
+          disabled={isDownloading}
+          className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-8 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-emerald-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {isDownloading ? (
+            <>
+              <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+              </svg>
+              Generating Report...
+            </>
+          ) : (
+            <>
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+              </svg>
+              Download Free PDF Report
+            </>
+          )}
+        </button>
+      </div>
+
       {/* ─── Actions ──────────────────────────────────────────────────── */}
-      <div className="mt-12 rounded-2xl border-2 border-brand-200 bg-brand-50 p-8 text-center">
+      <div className="mt-6 rounded-2xl border-2 border-brand-200 bg-brand-50 p-8 text-center">
         <h3 className="text-xl font-bold text-gray-900">Your results are 100% free</h3>
         <p className="mt-2 text-sm text-gray-600">
           All grants, eligibility details, and application links are fully unlocked.
