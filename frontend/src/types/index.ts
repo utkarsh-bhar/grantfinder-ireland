@@ -9,7 +9,7 @@ export interface ProfileData {
   residency_status?: string;
 
   // Step 2: Your Home
-  home_status?: 'owner' | 'renter' | 'local_authority_tenant' | 'living_with_family' | 'homeless';
+  home_status?: 'owner' | 'renter' | 'local_authority_tenant' | 'living_with_family' | 'homeless' | 'landlord';
   home_type?: 'detached' | 'semi_detached' | 'terraced' | 'apartment' | 'bungalow';
   home_year_built?: number;
   ber_rating?: string;

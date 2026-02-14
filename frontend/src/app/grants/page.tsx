@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { grantsAPI } from '@/lib/api';
@@ -8,7 +8,7 @@ import { formatCurrency } from '@/lib/utils';
 import { CATEGORY_LABELS, CATEGORY_ICONS } from '@/types';
 import type { Grant } from '@/types';
 
-export default function GrantsPage() {
+function GrantsContent() {
   const searchParams = useSearchParams();
   const categoryFilter = searchParams.get('category');
   const [grants, setGrants] = useState<Grant[]>([]);
@@ -121,5 +121,27 @@ export default function GrantsPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function GrantsPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="card animate-pulse">
+                <div className="h-4 w-2/3 rounded bg-gray-200" />
+                <div className="mt-3 h-3 w-full rounded bg-gray-200" />
+                <div className="mt-2 h-3 w-4/5 rounded bg-gray-200" />
+              </div>
+            ))}
+          </div>
+        </div>
+      }
+    >
+      <GrantsContent />
+    </Suspense>
   );
 }
