@@ -1,0 +1,25 @@
+app = 'grantfinder-api'
+primary_region = 'lhr'
+
+[build]
+
+[env]
+  ENVIRONMENT = 'production'
+  DEBUG = 'false'
+  DATABASE_URL = 'sqlite:////data/grantfinder.db'
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+
+[mounts]
+  source = 'grantfinder_data'
+  destination = '/data'
+
+[[vm]]
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1

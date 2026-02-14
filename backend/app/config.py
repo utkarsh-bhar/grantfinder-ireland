@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     ENVIRONMENT: str = "development"  # development | staging | production
     DEBUG: bool = True
 
-    # Database (SQLite for local dev, PostgreSQL for production)
+    # Database (SQLite — uses /data/ path on Fly.io for persistence)
     DATABASE_URL: str = "sqlite:///./grantfinder.db"
 
     # Redis
@@ -55,12 +55,14 @@ class Settings(BaseSettings):
     APPLE_TEAM_ID: str = ""
     APPLE_KEY_ID: str = ""
 
-    # CORS — add your Vercel URL here when deployed
+    # CORS
     CORS_ORIGINS: list[str] = [
         "http://localhost:3000",
         "https://grantfinder.ie",
         "https://www.grantfinder.ie",
         "https://grantfinder-ireland.vercel.app",
+        "https://frontend-sage-ten-80.vercel.app",
+        "https://frontend-bhardwaju1995-5629s-projects.vercel.app",
     ]
 
     model_config = {"env_file": ".env", "case_sensitive": True}

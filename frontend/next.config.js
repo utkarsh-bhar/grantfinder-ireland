@@ -2,16 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   async rewrites() {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    // In production (Vercel), proxy /api/* to the Render backend
-    // In local dev, proxy to localhost:8000
-    const destination = apiUrl
-      ? `${apiUrl}/:path*`
-      : 'http://localhost:8000/api/:path*';
+    // In production, proxy /api/* to the Fly.io backend
+    // In local dev (when NEXT_PUBLIC_API_URL is not set), proxy to localhost
+    const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'https://grantfinder-api.fly.dev';
     return [
       {
         source: '/api/:path*',
-        destination,
+        destination: `${backendUrl}/api/:path*`,
       },
     ];
   },
