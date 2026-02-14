@@ -1,0 +1,33 @@
+# Render Blueprint — deploy backend + PostgreSQL
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: grantfinder-api
+    runtime: python
+    region: frankfurt  # EU — closest to Ireland
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: "false"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: grantfinder-db
+          property: connectionURI
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: '["https://grantfinder-ireland.vercel.app"]'
+      - key: PYTHON_VERSION
+        value: "3.12.0"
+
+databases:
+  - name: grantfinder-db
+    plan: free
+    region: frankfurt
+    databaseName: grantfinder

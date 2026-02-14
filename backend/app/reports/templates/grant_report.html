@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Your Personalised Grant Report — GrantFinder.ie</title>
+<style>
+  @page { size: A4; margin: 2cm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #1a1a2e; font-size: 11pt; line-height: 1.5; }
+  
+  .cover { text-align: center; padding: 120px 40px 80px; page-break-after: always; }
+  .cover h1 { font-size: 28pt; color: #16a34a; margin-bottom: 12px; }
+  .cover .subtitle { font-size: 14pt; color: #475569; margin-bottom: 40px; }
+  .cover .total { font-size: 36pt; font-weight: 700; color: #16a34a; margin: 30px 0; }
+  .cover .total-label { font-size: 13pt; color: #64748b; }
+  .cover .user { font-size: 12pt; color: #64748b; margin-top: 30px; }
+  .cover .date { font-size: 10pt; color: #94a3b8; margin-top: 6px; }
+  .cover .logo { font-size: 18pt; font-weight: 700; color: #16a34a; margin-bottom: 30px; }
+
+  .summary { page-break-after: always; padding: 20px 0; }
+  .summary h2 { font-size: 20pt; color: #16a34a; margin-bottom: 16px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; }
+  .stats { display: flex; gap: 20px; margin: 20px 0; }
+  .stat-box { flex: 1; background: #f0fdf4; border-radius: 8px; padding: 16px; text-align: center; }
+  .stat-box .number { font-size: 24pt; font-weight: 700; color: #16a34a; }
+  .stat-box .label { font-size: 9pt; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .category-section { margin: 24px 0; }
+  .category-title { font-size: 16pt; color: #1e40af; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid #e2e8f0; }
+
+  .grant-card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; margin-bottom: 12px; }
+  .grant-card .grant-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+  .grant-card .grant-name { font-size: 12pt; font-weight: 600; color: #1a1a2e; }
+  .grant-card .grant-amount { font-size: 12pt; font-weight: 700; color: #16a34a; white-space: nowrap; }
+  .grant-card .match-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 8pt; font-weight: 600; text-transform: uppercase; }
+  .badge-eligible { background: #dcfce7; color: #166534; }
+  .badge-likely { background: #fef9c3; color: #854d0e; }
+  .badge-possible { background: #e0e7ff; color: #3730a3; }
+  .grant-card .description { font-size: 10pt; color: #475569; margin: 6px 0; }
+  .grant-card .notes { font-size: 9pt; color: #64748b; font-style: italic; }
+  .grant-card .link { font-size: 9pt; color: #2563eb; text-decoration: none; }
+
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #e2e8f0; font-size: 9pt; color: #94a3b8; }
+  .disclaimer { font-size: 8pt; color: #94a3b8; margin-top: 20px; line-height: 1.4; }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+  <div class="logo">🍀 GrantFinder.ie</div>
+  <h1>Your Personalised Grant Report</h1>
+  <p class="subtitle">A comprehensive guide to every grant, scheme, and entitlement you may qualify for in Ireland</p>
+  <p class="total-label">You could be entitled to up to</p>
+  <p class="total">{{ total_value }}</p>
+  <p class="total-label">across {{ total_grants }} grants and schemes</p>
+  <p class="user">Prepared for: {{ user_email }}</p>
+  <p class="date">Generated on {{ generated_date }}</p>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="summary">
+  <h2>Executive Summary</h2>
+  <div class="stats">
+    <div class="stat-box">
+      <div class="number">{{ total_grants }}</div>
+      <div class="label">Grants Found</div>
+    </div>
+    <div class="stat-box">
+      <div class="number">{{ total_value }}</div>
+      <div class="label">Potential Value</div>
+    </div>
+    <div class="stat-box">
+      <div class="number">{{ categories|length }}</div>
+      <div class="label">Categories</div>
+    </div>
+  </div>
+
+  <h3 style="margin: 20px 0 10px; font-size: 13pt; color: #334155;">Top Grants by Value</h3>
+  {% for g in grants[:5] %}
+  <p style="font-size: 10pt; margin: 4px 0;">
+    <strong>{{ g.name }}</strong> — {{ g.amount_description or 'Variable amount' }}
+    <span class="match-badge {% if g.match_type == 'eligible' %}badge-eligible{% elif g.match_type == 'likely' %}badge-likely{% else %}badge-possible{% endif %}">
+      {{ g.match_type }}
+    </span>
+  </p>
+  {% endfor %}
+</div>
+
+<!-- GRANT DETAILS BY CATEGORY -->
+{% for cat_key, cat_grants in categories.items() %}
+<div class="category-section">
+  <h2 class="category-title">{{ category_labels.get(cat_key, cat_key) }}</h2>
+  {% for g in cat_grants %}
+  <div class="grant-card">
+    <div class="grant-header">
+      <div>
+        <span class="grant-name">{{ g.name }}</span>
+        <span class="match-badge {% if g.match_type == 'eligible' %}badge-eligible{% elif g.match_type == 'likely' %}badge-likely{% else %}badge-possible{% endif %}">
+          {{ g.match_type }}
+        </span>
+      </div>
+      <span class="grant-amount">{{ g.amount_description or 'Variable' }}</span>
+    </div>
+    <p class="description">{{ g.short_description }}</p>
+    {% if g.notes %}<p class="notes">{{ g.notes }}</p>{% endif %}
+    {% if g.source_url %}<p><a class="link" href="{{ g.source_url }}">Official information →</a></p>{% endif %}
+    {% if g.application_url %}<p><a class="link" href="{{ g.application_url }}">Apply here →</a></p>{% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% endfor %}
+
+<!-- FOOTER / DISCLAIMER -->
+<div class="footer">
+  <h3 style="font-size: 13pt; color: #334155; margin-bottom: 8px;">Next Steps</h3>
+  <ol style="font-size: 10pt; color: #475569; padding-left: 20px; margin-bottom: 16px;">
+    <li>Start with the highest-value grants marked as "eligible"</li>
+    <li>Gather the required documents for each application</li>
+    <li>Apply online where possible — most applications take 15-30 minutes</li>
+    <li>Set up grant alerts at grantfinder.ie to stay updated on new schemes</li>
+  </ol>
+  <p class="disclaimer">
+    <strong>Disclaimer:</strong> This report is for informational purposes only and does not constitute
+    financial, tax, or legal advice. Grant eligibility is determined by the issuing body and may be
+    subject to additional criteria not captured in this assessment. GrantFinder.ie is not affiliated
+    with any Irish government department or agency. We recommend verifying eligibility directly with
+    the relevant organisation before applying. Information is accurate as of {{ generated_date }}.
+  </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1563 @@
+[
+  {
+    "name": "SEAI Attic Insulation Grant",
+    "slug": "seai-attic-insulation-grant",
+    "short_description": "Grant towards the cost of attic insulation to improve your home's energy efficiency and reduce heating bills.",
+    "long_description": "The SEAI Individual Energy Upgrade Grant covers attic insulation for homes built before 2021. Proper attic insulation can reduce heat loss by up to 25% and significantly lower your heating costs. The grant covers apartment and house attic/ceiling insulation.",
+    "category": "home_energy",
+    "max_amount": 1500.00,
+    "amount_description": "Up to €1,500",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "SEAI",
+    "source_url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/",
+    "application_url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-6 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "home_status", "operator": "in", "value": "owner,landlord", "description": "You must own the property or be a landlord", "is_mandatory": true},
+      {"rule_group": 0, "field": "home_year_built", "operator": "lt", "value": "2021", "description": "Your home must have been built before 2021", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check eligibility", "description": "Ensure your home was built and occupied before 2021 and you are the homeowner.", "url": null},
+      {"step_number": 2, "title": "Get a BER assessment", "description": "Have a BER assessment done before and after the works to confirm improvement.", "url": "https://www.seai.ie/home-energy/building-energy-rating-ber/"},
+      {"step_number": 3, "title": "Choose a registered contractor", "description": "Select a contractor from SEAI's registered list to carry out the insulation work.", "url": "https://www.seai.ie/grants/home-energy-grants/contractor-search/"},
+      {"step_number": 4, "title": "Apply online", "description": "Submit your application on the SEAI portal after works are completed. The grant is paid directly to you.", "url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/"}
+    ],
+    "documents": [
+      {"document_name": "Proof of home ownership", "description": "Mortgage statement, property deed, or utility bill in your name", "is_required": true},
+      {"document_name": "BER certificate (before)", "description": "BER assessment before insulation works", "is_required": true},
+      {"document_name": "BER certificate (after)", "description": "BER assessment after insulation works", "is_required": true},
+      {"document_name": "Contractor invoice", "description": "Invoice from SEAI-registered contractor", "is_required": true}
+    ]
+  },
+  {
+    "name": "SEAI Cavity Wall Insulation Grant",
+    "slug": "seai-cavity-wall-insulation-grant",
+    "short_description": "Grant towards cavity wall insulation to reduce heat loss and improve your home's BER rating.",
+    "long_description": "The SEAI cavity wall insulation grant helps homeowners insulate the cavity between the inner and outer walls of their home, significantly reducing heat loss and energy bills.",
+    "category": "home_energy",
+    "max_amount": 1700.00,
+    "amount_description": "Up to €1,700",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "SEAI",
+    "source_url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/",
+    "application_url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-6 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "home_status", "operator": "in", "value": "owner,landlord", "description": "You must own the property", "is_mandatory": true},
+      {"rule_group": 0, "field": "home_year_built", "operator": "lt", "value": "2021", "description": "Home must have been built before 2021", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Verify cavity walls", "description": "Confirm your home has cavity walls (common in homes built 1926-1999).", "url": null},
+      {"step_number": 2, "title": "Get a BER assessment", "description": "Arrange a BER assessment before and after works.", "url": null},
+      {"step_number": 3, "title": "Hire a registered contractor", "description": "Use an SEAI-registered contractor for the insulation work.", "url": null},
+      {"step_number": 4, "title": "Apply for the grant", "description": "Submit your application online through the SEAI portal.", "url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/"}
+    ],
+    "documents": [
+      {"document_name": "Proof of home ownership", "description": "Property deed, mortgage statement, or utility bill", "is_required": true},
+      {"document_name": "BER certificates", "description": "Before and after BER assessments", "is_required": true},
+      {"document_name": "Contractor invoice", "description": "From SEAI-registered contractor", "is_required": true}
+    ]
+  },
+  {
+    "name": "SEAI Internal Dry Lining Insulation Grant",
+    "slug": "seai-internal-dry-lining-grant",
+    "short_description": "Grant for internal wall insulation (dry lining) to improve your home's thermal performance.",
+    "long_description": "For homes where cavity wall insulation isn't possible (solid walls, stone walls), internal dry lining adds insulation boards to the inside of external walls.",
+    "category": "home_energy",
+    "max_amount": 4500.00,
+    "amount_description": "Up to €4,500",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "SEAI",
+    "source_url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/",
+    "application_url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-6 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "home_status", "operator": "in", "value": "owner,landlord", "description": "You must own the property", "is_mandatory": true},
+      {"rule_group": 0, "field": "home_year_built", "operator": "lt", "value": "2021", "description": "Home must have been built before 2021", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Get a BER assessment", "description": "Have your home's energy rating assessed before works begin.", "url": null},
+      {"step_number": 2, "title": "Choose a registered contractor", "description": "Select an SEAI-registered contractor.", "url": null},
+      {"step_number": 3, "title": "Complete works and apply", "description": "After works are done, apply online for the grant refund.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Proof of ownership", "description": "Property deed or mortgage statement", "is_required": true},
+      {"document_name": "BER certificates", "description": "Before and after assessments", "is_required": true},
+      {"document_name": "Contractor invoice", "description": "Invoice from registered contractor", "is_required": true}
+    ]
+  },
+  {
+    "name": "SEAI External Wall Insulation Grant",
+    "slug": "seai-external-wall-insulation-grant",
+    "short_description": "Grant for external wall insulation (EWI) — the highest-value individual SEAI energy grant.",
+    "long_description": "External wall insulation wraps the outside of your home in an insulation layer, dramatically improving energy efficiency. This is the most effective single upgrade for older homes.",
+    "category": "home_energy",
+    "max_amount": 8000.00,
+    "amount_description": "Up to €8,000",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "SEAI",
+    "source_url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/",
+    "application_url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-8 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "home_status", "operator": "in", "value": "owner,landlord", "description": "You must own the property", "is_mandatory": true},
+      {"rule_group": 0, "field": "home_year_built", "operator": "lt", "value": "2021", "description": "Home must have been built before 2021", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Get a BER assessment", "description": "Arrange a pre-works BER assessment.", "url": null},
+      {"step_number": 2, "title": "Choose a registered contractor", "description": "Select from the SEAI registered contractor list.", "url": null},
+      {"step_number": 3, "title": "Complete works", "description": "Have the external insulation installed.", "url": null},
+      {"step_number": 4, "title": "Apply for grant", "description": "Submit application with BER certs and invoices.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Proof of ownership", "description": "Property deed or mortgage statement", "is_required": true},
+      {"document_name": "BER certificates", "description": "Before and after assessments", "is_required": true},
+      {"document_name": "Contractor invoice", "description": "Invoice from registered contractor", "is_required": true}
+    ]
+  },
+  {
+    "name": "SEAI Heat Pump Grant",
+    "slug": "seai-heat-pump-grant",
+    "short_description": "Grant towards installing a heat pump (air-to-water, ground source, or exhaust air) to replace fossil fuel heating.",
+    "long_description": "Heat pumps are one of the most efficient heating systems available. The SEAI grant covers air-to-water, ground source, exhaust air, and water-to-water heat pumps for homes built before 2021.",
+    "category": "home_energy",
+    "max_amount": 6500.00,
+    "amount_description": "Up to €6,500",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "SEAI",
+    "source_url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/",
+    "application_url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-8 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "home_status", "operator": "in", "value": "owner,landlord", "description": "You must own the property", "is_mandatory": true},
+      {"rule_group": 0, "field": "home_year_built", "operator": "lt", "value": "2021", "description": "Home must have been built before 2021", "is_mandatory": true},
+      {"rule_group": 0, "field": "has_heat_pump", "operator": "is_false", "value": "true", "description": "You must not already have a heat pump installed", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check suitability", "description": "Ensure your home is suitable for a heat pump — good insulation is needed first.", "url": null},
+      {"step_number": 2, "title": "Get a BER assessment", "description": "A pre-works BER is required.", "url": null},
+      {"step_number": 3, "title": "Choose a contractor", "description": "Use an SEAI-registered heat pump installer.", "url": null},
+      {"step_number": 4, "title": "Install and apply", "description": "After installation, apply online with all documentation.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Proof of ownership", "description": "Property deed or mortgage statement", "is_required": true},
+      {"document_name": "BER certificates", "description": "Before and after assessments", "is_required": true},
+      {"document_name": "Heat pump specification", "description": "Technical details of the installed system", "is_required": true},
+      {"document_name": "Contractor invoice", "description": "Invoice from registered installer", "is_required": true}
+    ]
+  },
+  {
+    "name": "SEAI Solar PV Grant",
+    "slug": "seai-solar-pv-grant",
+    "short_description": "Grant towards installing solar PV panels to generate your own electricity and reduce energy bills.",
+    "long_description": "The SEAI Solar PV grant supports homeowners installing solar panels. Solar PV can reduce your electricity bill by up to 50% and you can sell excess electricity back to the grid through the Clean Export Guarantee.",
+    "category": "home_energy",
+    "max_amount": 1800.00,
+    "amount_description": "Up to €1,800",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "SEAI",
+    "source_url": "https://www.seai.ie/grants/home-energy-grants/solar-electricity-grant/",
+    "application_url": "https://www.seai.ie/grants/home-energy-grants/solar-electricity-grant/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-6 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "home_status", "operator": "in", "value": "owner,landlord", "description": "You must own the property", "is_mandatory": true},
+      {"rule_group": 0, "field": "home_year_built", "operator": "lt", "value": "2021", "description": "Home must have been built before 2021", "is_mandatory": true},
+      {"rule_group": 0, "field": "has_solar_pv", "operator": "is_false", "value": "true", "description": "You must not already have solar PV installed", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check your roof", "description": "South-facing roofs get the most benefit. Your installer will advise on suitability.", "url": null},
+      {"step_number": 2, "title": "Get quotes", "description": "Get quotes from SEAI-registered solar installers.", "url": null},
+      {"step_number": 3, "title": "Install panels", "description": "Have the solar PV system installed by a registered contractor.", "url": null},
+      {"step_number": 4, "title": "Apply for the grant", "description": "Submit your application after installation.", "url": "https://www.seai.ie/grants/home-energy-grants/solar-electricity-grant/"}
+    ],
+    "documents": [
+      {"document_name": "Proof of ownership", "description": "Property deed or mortgage statement", "is_required": true},
+      {"document_name": "BER certificates", "description": "Before and after BER assessments", "is_required": true},
+      {"document_name": "Installation certificate", "description": "Certificate from registered solar installer", "is_required": true},
+      {"document_name": "Contractor invoice", "description": "Full invoice for the installation", "is_required": true}
+    ]
+  },
+  {
+    "name": "SEAI Solar Thermal Grant",
+    "slug": "seai-solar-thermal-grant",
+    "short_description": "Grant towards installing solar thermal panels for hot water heating.",
+    "long_description": "Solar thermal panels heat water directly using sunlight. This grant helps homeowners install solar thermal systems to reduce hot water heating costs.",
+    "category": "home_energy",
+    "max_amount": 1200.00,
+    "amount_description": "Up to €1,200",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "SEAI",
+    "source_url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/",
+    "application_url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-6 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "home_status", "operator": "in", "value": "owner,landlord", "description": "You must own the property", "is_mandatory": true},
+      {"rule_group": 0, "field": "home_year_built", "operator": "lt", "value": "2021", "description": "Home must have been built before 2021", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check suitability", "description": "Assess if your roof is suitable for solar thermal panels.", "url": null},
+      {"step_number": 2, "title": "Get quotes", "description": "Obtain quotes from SEAI-registered contractors.", "url": null},
+      {"step_number": 3, "title": "Install and apply", "description": "After installation, submit your grant application.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Proof of ownership", "description": "Property deed or mortgage statement", "is_required": true},
+      {"document_name": "BER certificates", "description": "Before and after BER assessments", "is_required": true},
+      {"document_name": "Contractor invoice", "description": "Invoice from registered contractor", "is_required": true}
+    ]
+  },
+  {
+    "name": "SEAI Heating Controls Upgrade Grant",
+    "slug": "seai-heating-controls-grant",
+    "short_description": "Grant towards upgrading your heating controls (thermostat, TRVs, timers) for better energy management.",
+    "long_description": "Modern heating controls like programmable thermostats and thermostatic radiator valves (TRVs) help you manage your heating more efficiently and reduce waste.",
+    "category": "home_energy",
+    "max_amount": 700.00,
+    "amount_description": "Up to €700",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "SEAI",
+    "source_url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/",
+    "application_url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-6 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "home_status", "operator": "in", "value": "owner,landlord", "description": "You must own the property", "is_mandatory": true},
+      {"rule_group": 0, "field": "home_year_built", "operator": "lt", "value": "2021", "description": "Home must have been built before 2021", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Get quotes", "description": "Get quotes from SEAI-registered heating contractors.", "url": null},
+      {"step_number": 2, "title": "Install controls", "description": "Have new heating controls installed.", "url": null},
+      {"step_number": 3, "title": "Apply for grant", "description": "Submit your grant application online.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Proof of ownership", "description": "Property deed or mortgage statement", "is_required": true},
+      {"document_name": "Contractor invoice", "description": "Invoice from registered contractor", "is_required": true}
+    ]
+  },
+  {
+    "name": "SEAI Window and Door Upgrade Grant",
+    "slug": "seai-window-door-grant",
+    "short_description": "Grant towards replacing windows and external doors with energy-efficient alternatives.",
+    "long_description": "Upgrading to A-rated windows and insulated external doors can significantly reduce heat loss and draughts, improving comfort and reducing heating bills.",
+    "category": "home_energy",
+    "max_amount": 4000.00,
+    "amount_description": "Up to €4,000",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "SEAI",
+    "source_url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/",
+    "application_url": "https://www.seai.ie/grants/home-energy-grants/individual-grants/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-8 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "home_status", "operator": "in", "value": "owner,landlord", "description": "You must own the property", "is_mandatory": true},
+      {"rule_group": 0, "field": "home_year_built", "operator": "lt", "value": "2021", "description": "Home must have been built before 2021", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Get a BER assessment", "description": "Have a BER assessment done before works.", "url": null},
+      {"step_number": 2, "title": "Choose a contractor", "description": "Select an SEAI-registered window/door contractor.", "url": null},
+      {"step_number": 3, "title": "Complete works and apply", "description": "After installation, apply online for the grant.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Proof of ownership", "description": "Property deed or mortgage statement", "is_required": true},
+      {"document_name": "BER certificates", "description": "Before and after assessments", "is_required": true},
+      {"document_name": "Contractor invoice", "description": "Invoice from registered contractor", "is_required": true}
+    ]
+  },
+  {
+    "name": "SEAI One Stop Shop — Deep Retrofit",
+    "slug": "seai-one-stop-shop-deep-retrofit",
+    "short_description": "Comprehensive home energy upgrade through an SEAI-registered One Stop Shop, covering up to 50% of costs.",
+    "long_description": "The One Stop Shop service manages your entire home energy upgrade from start to finish. They arrange all works — insulation, heating, ventilation, renewables — and handle the grant applications. Grants cover up to 50% of the total cost.",
+    "category": "home_energy",
+    "max_amount": 25000.00,
+    "amount_description": "Up to 50% of costs (varies by measures)",
+    "amount_type": "percentage",
+    "is_means_tested": false,
+    "source_organisation": "SEAI",
+    "source_url": "https://www.seai.ie/grants/home-energy-grants/one-stop-shop/",
+    "application_url": "https://www.seai.ie/grants/home-energy-grants/one-stop-shop/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Varies — typically 3-6 months",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "home_status", "operator": "in", "value": "owner,landlord", "description": "You must own the property", "is_mandatory": true},
+      {"rule_group": 0, "field": "home_year_built", "operator": "lt", "value": "2021", "description": "Home must have been built before 2021", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Contact a One Stop Shop", "description": "Find an SEAI-registered One Stop Shop provider near you.", "url": "https://www.seai.ie/grants/home-energy-grants/one-stop-shop/"},
+      {"step_number": 2, "title": "Home assessment", "description": "The OSS will assess your home and recommend a package of upgrades.", "url": null},
+      {"step_number": 3, "title": "Agree on works", "description": "Review the recommended upgrades and costs (grants are deducted from your bill).", "url": null},
+      {"step_number": 4, "title": "Works completed", "description": "The OSS manages all contractors and grant applications for you.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Proof of ownership", "description": "The One Stop Shop will guide you on required documentation", "is_required": true}
+    ]
+  },
+  {
+    "name": "Warmer Homes Scheme",
+    "slug": "warmer-homes-scheme",
+    "short_description": "FREE home energy upgrades for homeowners receiving certain welfare payments — fully funded by the government.",
+    "long_description": "The Warmer Homes Scheme provides free energy efficiency upgrades to homeowners who are in receipt of certain welfare payments. Upgrades can include attic insulation, cavity wall insulation, draught proofing, lagging jackets, energy-efficient lighting, and in some cases, heating system upgrades.",
+    "category": "home_energy",
+    "max_amount": null,
+    "amount_description": "Fully funded (FREE)",
+    "amount_type": "free_service",
+    "is_means_tested": true,
+    "source_organisation": "SEAI",
+    "source_url": "https://www.seai.ie/grants/home-energy-grants/free-upgrades-for-eligible-homes/",
+    "application_url": "https://www.seai.ie/grants/home-energy-grants/free-upgrades-for-eligible-homes/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "6-12 months (waiting list applies)",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "home_status", "operator": "eq", "value": "owner", "description": "You must own and live in the property", "is_mandatory": true},
+      {"rule_group": 0, "field": "welfare_payments", "operator": "contains", "value": "fuel_allowance", "description": "You must be receiving Fuel Allowance", "is_mandatory": true},
+      {"rule_group": 1, "field": "home_status", "operator": "eq", "value": "owner", "description": "You must own and live in the property", "is_mandatory": true},
+      {"rule_group": 1, "field": "welfare_payments", "operator": "contains", "value": "jobseekers_allowance", "description": "You are receiving Jobseeker's Allowance for 6+ months and have a child under 7", "is_mandatory": true},
+      {"rule_group": 1, "field": "has_child_under_7", "operator": "is_true", "value": "true", "description": "You have a child under 7", "is_mandatory": true},
+      {"rule_group": 2, "field": "home_status", "operator": "eq", "value": "owner", "description": "You must own and live in the property", "is_mandatory": true},
+      {"rule_group": 2, "field": "welfare_payments", "operator": "contains", "value": "working_family_payment", "description": "You are receiving Working Family Payment", "is_mandatory": true},
+      {"rule_group": 3, "field": "home_status", "operator": "eq", "value": "owner", "description": "You must own and live in the property", "is_mandatory": true},
+      {"rule_group": 3, "field": "welfare_payments", "operator": "contains", "value": "one_parent_family_payment", "description": "You are receiving One Parent Family Payment", "is_mandatory": true},
+      {"rule_group": 4, "field": "home_status", "operator": "eq", "value": "owner", "description": "You must own and live in the property", "is_mandatory": true},
+      {"rule_group": 4, "field": "welfare_payments", "operator": "contains", "value": "domiciliary_care_allowance", "description": "You are receiving Domiciliary Care Allowance", "is_mandatory": true},
+      {"rule_group": 5, "field": "home_status", "operator": "eq", "value": "owner", "description": "You must own and live in the property", "is_mandatory": true},
+      {"rule_group": 5, "field": "welfare_payments", "operator": "contains", "value": "carers_allowance", "description": "You are receiving Carer's Allowance", "is_mandatory": true},
+      {"rule_group": 6, "field": "home_status", "operator": "eq", "value": "owner", "description": "You must own and live in the property", "is_mandatory": true},
+      {"rule_group": 6, "field": "welfare_payments", "operator": "contains", "value": "disability_allowance", "description": "You are receiving Disability Allowance", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check eligibility", "description": "You must be a homeowner receiving one of the qualifying welfare payments.", "url": null},
+      {"step_number": 2, "title": "Apply online or by phone", "description": "Apply on the SEAI website or call 1800 250 204.", "url": "https://www.seai.ie/grants/home-energy-grants/free-upgrades-for-eligible-homes/"},
+      {"step_number": 3, "title": "Home survey", "description": "SEAI will arrange a surveyor to visit your home and assess what works are needed.", "url": null},
+      {"step_number": 4, "title": "Works carried out", "description": "All works are arranged and paid for by SEAI — there is no cost to you.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Proof of welfare payment", "description": "Letter or statement confirming your qualifying welfare payment", "is_required": true},
+      {"document_name": "Proof of home ownership", "description": "Mortgage statement or property deed", "is_required": true}
+    ]
+  },
+  {
+    "name": "Home Energy Upgrade Loan",
+    "slug": "home-energy-upgrade-loan",
+    "short_description": "Low-interest government-backed loan to cover the cost of home energy upgrades not covered by SEAI grants.",
+    "long_description": "A government-backed low-interest loan to help you fund the remaining cost of home energy upgrades after SEAI grants. Available through participating lenders at reduced interest rates.",
+    "category": "home_energy",
+    "max_amount": 75000.00,
+    "amount_description": "Up to €75,000 at reduced interest rates",
+    "amount_type": "variable",
+    "is_means_tested": false,
+    "source_organisation": "SEAI / Participating Lenders",
+    "source_url": "https://www.seai.ie/grants/home-energy-grants/home-energy-upgrade-loan/",
+    "application_url": "https://www.seai.ie/grants/home-energy-grants/home-energy-upgrade-loan/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "2-4 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "home_status", "operator": "in", "value": "owner,landlord", "description": "You must own the property", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Plan your upgrades", "description": "Decide which energy upgrades you want and get a One Stop Shop assessment.", "url": null},
+      {"step_number": 2, "title": "Apply to a lender", "description": "Apply through one of the participating banks or credit unions.", "url": null},
+      {"step_number": 3, "title": "Get approval", "description": "Once approved, proceed with your energy upgrade works.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Proof of ownership", "description": "Property deed or mortgage statement", "is_required": true},
+      {"document_name": "Quote for works", "description": "Detailed quote from contractors for planned upgrades", "is_required": true}
+    ]
+  },
+  {
+    "name": "SEAI BER Assessment Grant",
+    "slug": "seai-ber-assessment-grant",
+    "short_description": "Grant towards the cost of a Building Energy Rating (BER) assessment for your home.",
+    "long_description": "A BER assessment rates your home's energy efficiency from A to G. This grant covers a significant portion of the assessment cost, which is required before applying for most SEAI energy grants.",
+    "category": "home_energy",
+    "max_amount": 350.00,
+    "amount_description": "Up to €350",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "SEAI",
+    "source_url": "https://www.seai.ie/home-energy/building-energy-rating-ber/",
+    "application_url": "https://www.seai.ie/home-energy/building-energy-rating-ber/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "2-4 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "home_status", "operator": "in", "value": "owner,landlord", "description": "You must own or rent the property", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Find a BER assessor", "description": "Search for a registered BER assessor in your area.", "url": "https://ndber.seai.ie/BERAssessorSearch/ber/assessorsearch.aspx"},
+      {"step_number": 2, "title": "Book assessment", "description": "Arrange for the assessor to visit your home.", "url": null},
+      {"step_number": 3, "title": "Get your rating", "description": "Receive your BER certificate and advisory report.", "url": null}
+    ],
+    "documents": []
+  },
+  {
+    "name": "Help to Buy Scheme",
+    "slug": "help-to-buy-scheme",
+    "short_description": "Tax refund of up to €30,000 for first-time buyers purchasing or building a new home.",
+    "long_description": "The Help to Buy (HTB) incentive gives a refund of income tax and DIRT paid over the previous 4 years to first-time buyers purchasing a newly built home or building their own home. The refund is the lesser of €30,000, 10% of the purchase price, or the amount of income tax and DIRT paid in the previous 4 years.",
+    "category": "housing",
+    "max_amount": 30000.00,
+    "amount_description": "Up to €30,000 (10% of purchase price, max €500,000)",
+    "amount_type": "percentage",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/property/help-to-buy-incentive/index.aspx",
+    "application_url": "https://www.ros.ie/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Immediate (once approved by contractor)",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "is_first_time_buyer", "operator": "is_true", "value": "true", "description": "You must be a first-time buyer (never owned a property before)", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check eligibility", "description": "You must be a first-time buyer purchasing a new-build property valued up to €500,000.", "url": null},
+      {"step_number": 2, "title": "Apply through Revenue Online", "description": "Log into Revenue Online Services (ROS/myAccount) and apply for HTB.", "url": "https://www.ros.ie/"},
+      {"step_number": 3, "title": "Get your claim number", "description": "Revenue will provide a claim number to give to your solicitor/developer.", "url": null},
+      {"step_number": 4, "title": "Claim is processed", "description": "The refund is paid directly to the developer/contractor and deducted from your deposit.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Proof of first-time buyer status", "description": "Self-declaration that you have never owned a property", "is_required": true},
+      {"document_name": "Contract for new home", "description": "Signed contract with developer or builder", "is_required": true},
+      {"document_name": "Tax returns", "description": "Your last 4 years of income tax must be filed", "is_required": true}
+    ]
+  },
+  {
+    "name": "Local Authority Home Loan",
+    "slug": "local-authority-home-loan",
+    "short_description": "Government-backed mortgage for first-time buyers and other eligible applicants with lower incomes.",
+    "long_description": "The Local Authority Home Loan is a government-backed mortgage for people on lower incomes who cannot get a mortgage from a commercial bank. Fixed interest rates and available for new and second-hand homes.",
+    "category": "housing",
+    "max_amount": 320000.00,
+    "amount_description": "Up to €320,000 (Dublin) / €250,000 (elsewhere)",
+    "amount_type": "variable",
+    "is_means_tested": true,
+    "source_organisation": "Local Authority",
+    "source_url": "https://localauthorityhomeloan.ie/",
+    "application_url": "https://localauthorityhomeloan.ie/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "6-8 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "is_first_time_buyer", "operator": "is_true", "value": "true", "description": "You must be a first-time buyer (with some exceptions)", "is_mandatory": true},
+      {"rule_group": 0, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k,40-60k", "description": "Your gross annual income must be within the limits (€70,000 single / €85,000 joint)", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check income limits", "description": "Single applicant: max €70,000, joint: max €85,000 gross annual income.", "url": null},
+      {"step_number": 2, "title": "Get a mortgage refusal", "description": "You must have been refused a mortgage by two banks/building societies.", "url": null},
+      {"step_number": 3, "title": "Apply to your local authority", "description": "Submit your application through the Local Authority Home Loan website.", "url": "https://localauthorityhomeloan.ie/"}
+    ],
+    "documents": [
+      {"document_name": "Proof of income", "description": "P60, payslips, or tax returns", "is_required": true},
+      {"document_name": "Bank refusal letters", "description": "Two mortgage refusal letters from banks", "is_required": true},
+      {"document_name": "Proof of savings", "description": "Evidence of regular savings pattern", "is_required": true}
+    ]
+  },
+  {
+    "name": "Housing Adaptation Grant for People with a Disability",
+    "slug": "housing-adaptation-grant-disability",
+    "short_description": "Grant of up to €30,000 to adapt your home for a person with a disability.",
+    "long_description": "This grant helps with necessary adaptations to make a home more suitable for a person with a physical, sensory or intellectual disability. Works can include wheelchair ramps, stair lifts, downstairs bathrooms, and bedroom extensions.",
+    "category": "housing",
+    "max_amount": 30000.00,
+    "amount_description": "Up to €30,000 (up to 95% of costs for lower incomes)",
+    "amount_type": "percentage",
+    "is_means_tested": true,
+    "source_organisation": "Local Authority",
+    "source_url": "https://www.citizensinformation.ie/en/housing/housing-grants-and-schemes/housing-adaptation-grant-for-people-with-disability/",
+    "application_url": null,
+    "application_method": "post",
+    "is_always_open": true,
+    "typical_processing": "Several months",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "has_disability", "operator": "is_true", "value": "true", "description": "You or a household member must have a disability", "is_mandatory": true},
+      {"rule_group": 1, "field": "household_disability", "operator": "is_true", "value": "true", "description": "Someone in your household has a disability", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Contact your local authority", "description": "Contact the housing section of your local county council.", "url": null},
+      {"step_number": 2, "title": "Submit application", "description": "Complete the application form with supporting medical evidence.", "url": null},
+      {"step_number": 3, "title": "Assessment", "description": "An occupational therapist may assess your home and needs.", "url": null},
+      {"step_number": 4, "title": "Approval and works", "description": "If approved, get quotes, carry out works, and claim the grant.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Medical evidence", "description": "Letter from GP or consultant confirming the disability", "is_required": true},
+      {"document_name": "OT recommendation", "description": "Occupational therapist's report (may be arranged by local authority)", "is_required": false},
+      {"document_name": "Proof of income", "description": "Household income details for means test", "is_required": true},
+      {"document_name": "Builder's quotes", "description": "Two written quotes for proposed adaptation works", "is_required": true}
+    ]
+  },
+  {
+    "name": "Housing Aid for Older People",
+    "slug": "housing-aid-for-older-people",
+    "short_description": "Grant of up to €8,000 for essential repairs and improvements for older people's homes.",
+    "long_description": "This grant helps older people living in poor housing conditions to carry out essential repairs. Works can include structural repairs, re-wiring, plumbing, heating, windows and doors, and radon remediation.",
+    "category": "housing",
+    "max_amount": 8000.00,
+    "amount_description": "Up to €8,000 (up to 100% of costs for lower incomes)",
+    "amount_type": "percentage",
+    "is_means_tested": true,
+    "source_organisation": "Local Authority",
+    "source_url": "https://www.citizensinformation.ie/en/housing/housing-grants-and-schemes/housing-aid-for-older-persons-grant/",
+    "application_method": "post",
+    "is_always_open": true,
+    "typical_processing": "Several months",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "is_over_66", "operator": "is_true", "value": "true", "description": "You must be aged 66 or over", "is_mandatory": true},
+      {"rule_group": 0, "field": "home_status", "operator": "eq", "value": "owner", "description": "You must own and live in the property", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Contact your local authority", "description": "Contact the housing section of your county council.", "url": null},
+      {"step_number": 2, "title": "Submit application", "description": "Complete the application form with income details.", "url": null},
+      {"step_number": 3, "title": "Get quotes and approval", "description": "Provide quotes for the work. If approved, complete the works.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Proof of age", "description": "Passport, driving licence, or birth certificate", "is_required": true},
+      {"document_name": "Proof of income", "description": "Household income for means test", "is_required": true},
+      {"document_name": "Builder's quotes", "description": "Written quotes for proposed works", "is_required": true}
+    ]
+  },
+  {
+    "name": "Mobility Aids Grant",
+    "slug": "mobility-aids-grant",
+    "short_description": "Grant of up to €6,000 for mobility aids and minor adaptations to help you move around your home safely.",
+    "long_description": "A quick-access grant for mobility-related works such as grab rails, ramps, stair lifts, level-access showers, and other minor adaptations to help with mobility issues.",
+    "category": "housing",
+    "max_amount": 6000.00,
+    "amount_description": "Up to €6,000",
+    "amount_type": "percentage",
+    "is_means_tested": true,
+    "source_organisation": "Local Authority",
+    "source_url": "https://www.citizensinformation.ie/en/housing/housing-grants-and-schemes/mobility-aids-grant-scheme/",
+    "application_method": "post",
+    "is_always_open": true,
+    "typical_processing": "Several weeks to months",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "has_disability", "operator": "is_true", "value": "true", "description": "You must have mobility difficulties", "is_mandatory": true},
+      {"rule_group": 1, "field": "is_over_66", "operator": "is_true", "value": "true", "description": "You are 66 or older and need mobility support", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Contact your local authority", "description": "Contact the housing section of your county council.", "url": null},
+      {"step_number": 2, "title": "Submit application", "description": "Complete the application form.", "url": null},
+      {"step_number": 3, "title": "Complete works", "description": "Once approved, have the works carried out and claim the grant.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Medical evidence", "description": "Letter confirming mobility difficulties", "is_required": true},
+      {"document_name": "Builder's quotes", "description": "Quotes for the proposed works", "is_required": true}
+    ]
+  },
+  {
+    "name": "Vacant Property Refurbishment Grant",
+    "slug": "vacant-property-refurbishment-grant",
+    "short_description": "Up to €50,000 (or €70,000 for derelict properties) to refurbish a vacant property as your home.",
+    "long_description": "The Croí Cónaithe (Towns) Fund provides grants to refurbish vacant and derelict properties in towns and villages for use as your principal private residence. Available for properties vacant for 2+ years.",
+    "category": "housing",
+    "max_amount": 70000.00,
+    "amount_description": "Up to €50,000 (+ €20,000 if derelict)",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Local Authority",
+    "source_url": "https://www.gov.ie/en/service/f8f1b-vacant-property-refurbishment-grant/",
+    "application_url": "https://www.gov.ie/en/service/f8f1b-vacant-property-refurbishment-grant/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Several weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "county", "operator": "exists", "value": "", "description": "You must be based in Ireland", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Find a vacant property", "description": "Identify a property that has been vacant for 2+ years.", "url": null},
+      {"step_number": 2, "title": "Apply to your local authority", "description": "Submit the application form to your county council.", "url": null},
+      {"step_number": 3, "title": "Get approval", "description": "If approved, proceed with refurbishment works.", "url": null},
+      {"step_number": 4, "title": "Claim the grant", "description": "Submit invoices and receipts to claim the grant payment.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Evidence of vacancy", "description": "Proof that the property has been vacant for 2+ years", "is_required": true},
+      {"document_name": "Builder's quotes", "description": "Detailed quotes for refurbishment works", "is_required": true},
+      {"document_name": "Tax clearance", "description": "Tax clearance certificate", "is_required": true}
+    ]
+  },
+  {
+    "name": "Housing Assistance Payment (HAP)",
+    "slug": "hap-housing-assistance-payment",
+    "short_description": "Social housing support — your local authority pays rent directly to your landlord on your behalf.",
+    "long_description": "HAP is a form of social housing support where the local authority makes a monthly payment to your landlord. You pay a weekly HAP rent contribution to the local authority based on your income and ability to pay.",
+    "category": "housing_support",
+    "max_amount": null,
+    "amount_description": "Rent paid by local authority (you pay differential rent)",
+    "amount_type": "variable",
+    "is_means_tested": true,
+    "source_organisation": "Local Authority",
+    "source_url": "https://www.citizensinformation.ie/en/housing/renting-a-home/help-with-renting/housing-assistance-payment/",
+    "application_method": "in_person",
+    "is_always_open": true,
+    "typical_processing": "Several weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "home_status", "operator": "eq", "value": "renter", "description": "You must be renting or in need of housing support", "is_mandatory": true},
+      {"rule_group": 0, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k", "description": "You must qualify for social housing support based on income", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Apply for social housing", "description": "First, apply to your local authority's social housing list.", "url": null},
+      {"step_number": 2, "title": "Find suitable accommodation", "description": "Find a private rental that meets HAP standards and rent limits.", "url": null},
+      {"step_number": 3, "title": "Set up HAP", "description": "Your local authority and landlord set up the HAP arrangement.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Social housing application", "description": "Completed social housing application", "is_required": true},
+      {"document_name": "Proof of income", "description": "Payslips, welfare statements, or tax returns", "is_required": true},
+      {"document_name": "Landlord details", "description": "Landlord's agreement to participate in HAP", "is_required": true}
+    ]
+  },
+  {
+    "name": "Fuel Allowance",
+    "slug": "fuel-allowance",
+    "short_description": "€33 per week for 28 weeks to help with the cost of heating your home during winter.",
+    "long_description": "The Fuel Allowance is a payment to help with the cost of heating your home during the winter. It is paid for 28 weeks from late September to April. You can choose to receive it weekly (€33) or as two lump sums.",
+    "category": "welfare",
+    "max_amount": 924.00,
+    "amount_description": "€33/week for 28 weeks (€924 total)",
+    "amount_type": "fixed",
+    "is_means_tested": true,
+    "source_organisation": "Department of Social Protection",
+    "source_url": "https://www.gov.ie/en/service/00aa38-fuel-allowance/",
+    "application_url": "https://www.gov.ie/en/service/00aa38-fuel-allowance/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-6 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "is_over_66", "operator": "is_true", "value": "true", "description": "You are aged 66 or over and living alone or with qualifying person", "is_mandatory": true},
+      {"rule_group": 1, "field": "welfare_payments", "operator": "contains", "value": "disability_allowance", "description": "You are receiving Disability Allowance", "is_mandatory": true},
+      {"rule_group": 2, "field": "welfare_payments", "operator": "contains", "value": "invalidity_pension", "description": "You are receiving Invalidity Pension", "is_mandatory": true},
+      {"rule_group": 3, "field": "welfare_payments", "operator": "contains", "value": "one_parent_family_payment", "description": "You are receiving One Parent Family Payment", "is_mandatory": true},
+      {"rule_group": 4, "field": "welfare_payments", "operator": "contains", "value": "jobseekers_allowance", "description": "You are receiving Jobseeker's Allowance for 15+ months", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check eligibility", "description": "You must be receiving a qualifying social welfare payment and satisfy the means test.", "url": null},
+      {"step_number": 2, "title": "Apply", "description": "Complete the Fuel Allowance application form (NFS 1) and submit to your local DSP office.", "url": "https://www.gov.ie/en/service/00aa38-fuel-allowance/"}
+    ],
+    "documents": [
+      {"document_name": "Fuel Allowance application form", "description": "Form NFS 1", "is_required": true},
+      {"document_name": "Proof of address", "description": "Utility bill or other proof of residence", "is_required": true}
+    ]
+  },
+  {
+    "name": "Child Benefit",
+    "slug": "child-benefit",
+    "short_description": "€140 per month for each child under 18 (or under 22 if in full-time education).",
+    "long_description": "Child Benefit is a universal payment made to the parents or guardians of children under 18, or under 22 if the child is in full-time education. It is not means-tested and is paid monthly.",
+    "category": "family",
+    "max_amount": 1680.00,
+    "amount_description": "€140/month per child (€1,680/year per child)",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Department of Social Protection",
+    "source_url": "https://www.gov.ie/en/service/1af94c-child-benefit/",
+    "application_url": "https://www.gov.ie/en/service/1af94c-child-benefit/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Automatic for Irish births; 4-6 weeks for applications",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "has_children", "operator": "is_true", "value": "true", "description": "You must have at least one child", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Register birth", "description": "For children born in Ireland, Child Benefit is usually automatic after birth registration.", "url": null},
+      {"step_number": 2, "title": "Apply if needed", "description": "If not automatic, apply using form CB1 online or at your local DSP office.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Child's birth certificate", "description": "Full birth certificate for each child", "is_required": true},
+      {"document_name": "Parent's PPS number", "description": "Your Personal Public Service number", "is_required": true}
+    ]
+  },
+  {
+    "name": "Working Family Payment",
+    "slug": "working-family-payment",
+    "short_description": "Weekly tax-free payment for employees with children who earn below a certain income threshold.",
+    "long_description": "Working Family Payment (formerly Family Income Supplement) is a weekly tax-free payment for employees with children. It tops up the income of families where at least one parent works at least 38 hours per fortnight.",
+    "category": "welfare",
+    "max_amount": null,
+    "amount_description": "60% of difference between income and threshold (varies by family size)",
+    "amount_type": "variable",
+    "is_means_tested": true,
+    "source_organisation": "Department of Social Protection",
+    "source_url": "https://www.gov.ie/en/service/6f8c11-working-family-payment/",
+    "application_url": "https://www.gov.ie/en/service/6f8c11-working-family-payment/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-8 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "employment_status", "operator": "eq", "value": "employed", "description": "You must be employed (at least 38 hours per fortnight)", "is_mandatory": true},
+      {"rule_group": 0, "field": "has_children", "operator": "is_true", "value": "true", "description": "You must have at least one qualifying child", "is_mandatory": true},
+      {"rule_group": 0, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k,40-60k", "description": "Your income must be below the WFP threshold for your family size", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check income thresholds", "description": "Income limits vary by number of children (e.g., 1 child: €614/week).", "url": null},
+      {"step_number": 2, "title": "Apply online", "description": "Submit your application on MyWelfare.ie.", "url": "https://www.mywelfare.ie/"}
+    ],
+    "documents": [
+      {"document_name": "Employment details", "description": "Recent payslips and employer confirmation of hours", "is_required": true},
+      {"document_name": "Children's details", "description": "Birth certificates and PPS numbers for children", "is_required": true}
+    ]
+  },
+  {
+    "name": "Medical Card",
+    "slug": "medical-card",
+    "short_description": "Free GP visits, prescriptions, hospital care, and other health services for those on lower incomes.",
+    "long_description": "A Medical Card entitles you and your family to free GP visits, prescribed medicines, hospital services, dental, optical and aural services. Eligibility is based on a means test, though some people qualify automatically.",
+    "category": "health",
+    "max_amount": null,
+    "amount_description": "Free healthcare services (valued at thousands per year)",
+    "amount_type": "free_service",
+    "is_means_tested": true,
+    "source_organisation": "HSE",
+    "source_url": "https://www2.hse.ie/services/medical-cards/",
+    "application_url": "https://www.mymedicalcard.ie/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-8 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k", "description": "Your income is within the medical card guidelines", "is_mandatory": true},
+      {"rule_group": 1, "field": "is_over_70", "operator": "is_true", "value": "true", "description": "You are over 70 (higher income limits apply)", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check income limits", "description": "Income limits vary by age and family status.", "url": null},
+      {"step_number": 2, "title": "Apply online", "description": "Apply through mymedicalcard.ie or at your local health office.", "url": "https://www.mymedicalcard.ie/"}
+    ],
+    "documents": [
+      {"document_name": "Proof of income", "description": "Payslips, P60, social welfare statements", "is_required": true},
+      {"document_name": "Proof of address", "description": "Utility bill or bank statement", "is_required": true},
+      {"document_name": "Photo ID", "description": "Passport, driving licence, or Public Services Card", "is_required": true}
+    ]
+  },
+  {
+    "name": "GP Visit Card",
+    "slug": "gp-visit-card",
+    "short_description": "Free GP visits for those who don't qualify for a full Medical Card — available to all children under 8.",
+    "long_description": "A GP Visit Card covers the cost of GP visits. All children under 8, all people over 70, and those with incomes above the Medical Card limit but below the GP Visit Card limit qualify.",
+    "category": "health",
+    "max_amount": null,
+    "amount_description": "Free GP visits",
+    "amount_type": "free_service",
+    "is_means_tested": true,
+    "source_organisation": "HSE",
+    "source_url": "https://www2.hse.ie/services/gp-visit-cards/",
+    "application_url": "https://www.mymedicalcard.ie/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-6 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "has_children", "operator": "is_true", "value": "true", "description": "You have children under 8 who qualify automatically", "is_mandatory": true},
+      {"rule_group": 1, "field": "is_over_70", "operator": "is_true", "value": "true", "description": "You are over 70 and qualify automatically", "is_mandatory": true},
+      {"rule_group": 2, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k,40-60k", "description": "Your income is below the GP Visit Card threshold", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Apply online", "description": "Apply through mymedicalcard.ie for yourself and eligible family members.", "url": "https://www.mymedicalcard.ie/"}
+    ],
+    "documents": []
+  },
+  {
+    "name": "Drug Payment Scheme",
+    "slug": "drug-payment-scheme",
+    "short_description": "Caps the cost of approved prescribed drugs and medicines at €80 per month per family.",
+    "long_description": "Under the Drug Payment Scheme, you and your family never pay more than €80 per calendar month for approved prescribed drugs, medicines and certain appliances.",
+    "category": "health",
+    "max_amount": null,
+    "amount_description": "Monthly drug costs capped at €80",
+    "amount_type": "variable",
+    "is_means_tested": false,
+    "source_organisation": "HSE",
+    "source_url": "https://www2.hse.ie/services/drugs-payment-scheme/",
+    "application_url": "https://www2.hse.ie/services/drugs-payment-scheme/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "1-2 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "county", "operator": "exists", "value": "", "description": "Available to all residents of Ireland", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Register", "description": "Register online at drugspayment.ie or at your local pharmacy.", "url": "https://www2.hse.ie/services/drugs-payment-scheme/"}
+    ],
+    "documents": []
+  },
+  {
+    "name": "SUSI Student Grant (Maintenance)",
+    "slug": "susi-student-grant-maintenance",
+    "short_description": "Maintenance grant to help with living costs while studying — up to €5,915 per year.",
+    "long_description": "The SUSI maintenance grant helps students with the cost of living while in full-time further or higher education. The amount depends on your reckonable income, the distance from home to college, and whether you are an adjacent or non-adjacent student.",
+    "category": "education",
+    "max_amount": 5915.00,
+    "amount_description": "Up to €5,915/year (non-adjacent rate)",
+    "amount_type": "variable",
+    "is_means_tested": true,
+    "source_organisation": "SUSI",
+    "source_url": "https://www.susi.ie/",
+    "application_url": "https://www.susi.ie/",
+    "application_method": "online",
+    "is_always_open": false,
+    "typical_processing": "4-12 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "is_student", "operator": "is_true", "value": "true", "description": "You must be in full-time education or planning to study", "is_mandatory": true},
+      {"rule_group": 0, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k,40-60k", "description": "Your household income must be below the SUSI threshold", "is_mandatory": true},
+      {"rule_group": 1, "field": "planning_education", "operator": "is_true", "value": "true", "description": "You are planning to enter full-time education", "is_mandatory": true},
+      {"rule_group": 1, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k,40-60k", "description": "Your household income must be below the SUSI threshold", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check eligibility", "description": "Use the SUSI eligibility reckoner at susi.ie to check if you qualify.", "url": "https://www.susi.ie/eligibility-criteria/"},
+      {"step_number": 2, "title": "Apply online", "description": "Submit your application through susi.ie during the application window (typically April-November).", "url": "https://www.susi.ie/"},
+      {"step_number": 3, "title": "Provide documents", "description": "Upload requested documentation to support your application.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Proof of income", "description": "P60, Revenue Notice of Assessment, social welfare statements", "is_required": true},
+      {"document_name": "College acceptance letter", "description": "Proof of enrollment or acceptance to an approved course", "is_required": true}
+    ]
+  },
+  {
+    "name": "Back to Education Allowance (BTEA)",
+    "slug": "back-to-education-allowance",
+    "short_description": "Continue receiving your social welfare payment while studying full-time in an approved course.",
+    "long_description": "BTEA allows you to keep your existing social welfare payment (plus a top-up for course costs) while attending an approved full-time education course. Available for second-level and third-level courses.",
+    "category": "education",
+    "max_amount": null,
+    "amount_description": "Your existing welfare payment + €500 cost of education allowance",
+    "amount_type": "variable",
+    "is_means_tested": false,
+    "source_organisation": "Department of Social Protection",
+    "source_url": "https://www.gov.ie/en/service/f26892-back-to-education-allowance/",
+    "application_url": "https://www.gov.ie/en/service/f26892-back-to-education-allowance/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-6 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "employment_status", "operator": "eq", "value": "unemployed", "description": "You must be receiving a qualifying social welfare payment", "is_mandatory": true},
+      {"rule_group": 0, "field": "planning_education", "operator": "is_true", "value": "true", "description": "You must be planning to study full-time", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check qualifying payments", "description": "You must be on Jobseeker's Allowance/Benefit, Disability Allowance, or similar for a qualifying period.", "url": null},
+      {"step_number": 2, "title": "Apply before course starts", "description": "Apply at least 2 weeks before your course begins.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Course acceptance letter", "description": "Proof of acceptance on approved full-time course", "is_required": true},
+      {"document_name": "Welfare statement", "description": "Proof of qualifying welfare payment", "is_required": true}
+    ]
+  },
+  {
+    "name": "LEO Priming Grant",
+    "slug": "leo-priming-grant",
+    "short_description": "Up to €150,000 for new businesses (under 18 months old) with 10 or fewer employees.",
+    "long_description": "The LEO Priming Grant supports new businesses in the start-up phase. It can cover up to 50% of eligible costs (capital, consultancy, and some operational costs). Available for businesses in manufacturing and internationally traded services.",
+    "category": "business",
+    "max_amount": 150000.00,
+    "amount_description": "Up to €150,000 (50% of eligible costs)",
+    "amount_type": "percentage",
+    "is_means_tested": false,
+    "source_organisation": "Local Enterprise Office",
+    "source_url": "https://www.localenterprise.ie/Discover-Business-Supports/Financial-Supports/Priming-Grant/",
+    "application_url": "https://www.localenterprise.ie/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "6-8 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "owns_business", "operator": "is_true", "value": "true", "description": "You must own or be starting a business", "is_mandatory": true},
+      {"rule_group": 0, "field": "num_employees", "operator": "lte", "value": "10", "description": "Business must have 10 or fewer employees", "is_mandatory": true},
+      {"rule_group": 0, "field": "business_age_months", "operator": "lte", "value": "18", "description": "Business must be less than 18 months old", "is_mandatory": true},
+      {"rule_group": 1, "field": "planning_business", "operator": "is_true", "value": "true", "description": "You are planning to start a business", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Contact your LEO", "description": "Find and contact your Local Enterprise Office.", "url": "https://www.localenterprise.ie/Find-Your-Local-Enterprise-Office/"},
+      {"step_number": 2, "title": "Attend training", "description": "You may need to complete LEO's Start Your Own Business course.", "url": null},
+      {"step_number": 3, "title": "Submit application", "description": "Prepare a business plan and submit your grant application.", "url": null},
+      {"step_number": 4, "title": "Evaluation panel", "description": "Present to the LEO evaluation committee for approval.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Business plan", "description": "Detailed business plan with financial projections", "is_required": true},
+      {"document_name": "Tax clearance certificate", "description": "Valid tax clearance from Revenue", "is_required": true},
+      {"document_name": "Quotes for expenditure", "description": "Quotes for items you plan to purchase with the grant", "is_required": true}
+    ]
+  },
+  {
+    "name": "LEO Business Expansion Grant",
+    "slug": "leo-business-expansion-grant",
+    "short_description": "Up to €150,000 for established businesses (18+ months) looking to grow and create employment.",
+    "long_description": "For businesses older than 18 months with 10 or fewer employees, this grant supports expansion activities including capital investment, consultancy, and innovation projects.",
+    "category": "business",
+    "max_amount": 150000.00,
+    "amount_description": "Up to €150,000 (50% of eligible costs)",
+    "amount_type": "percentage",
+    "is_means_tested": false,
+    "source_organisation": "Local Enterprise Office",
+    "source_url": "https://www.localenterprise.ie/Discover-Business-Supports/Financial-Supports/Business-Expansion-Grant/",
+    "application_url": "https://www.localenterprise.ie/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "6-8 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "owns_business", "operator": "is_true", "value": "true", "description": "You must own a business", "is_mandatory": true},
+      {"rule_group": 0, "field": "num_employees", "operator": "lte", "value": "10", "description": "Business must have 10 or fewer employees", "is_mandatory": true},
+      {"rule_group": 0, "field": "business_age_months", "operator": "gt", "value": "18", "description": "Business must be older than 18 months", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Contact your LEO", "description": "Contact your Local Enterprise Office to discuss your expansion plans.", "url": null},
+      {"step_number": 2, "title": "Prepare application", "description": "Submit detailed application with business case for expansion.", "url": null},
+      {"step_number": 3, "title": "Evaluation", "description": "Present to the LEO evaluation committee.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Business plan", "description": "Updated business plan showing expansion strategy", "is_required": true},
+      {"document_name": "Financial statements", "description": "Last 2 years' accounts", "is_required": true},
+      {"document_name": "Tax clearance", "description": "Valid tax clearance certificate", "is_required": true}
+    ]
+  },
+  {
+    "name": "LEO Feasibility Study Grant",
+    "slug": "leo-feasibility-study-grant",
+    "short_description": "Up to €15,000 to research whether your business idea is viable before you invest.",
+    "long_description": "The feasibility grant helps you research and investigate the viability of your business proposition. It covers innovation research, market research, technical feasibility, and prototype development.",
+    "category": "business",
+    "max_amount": 15000.00,
+    "amount_description": "Up to €15,000",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Local Enterprise Office",
+    "source_url": "https://www.localenterprise.ie/Discover-Business-Supports/Financial-Supports/Feasibility-Study-Grant/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-6 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "planning_business", "operator": "is_true", "value": "true", "description": "You are planning a new business venture", "is_mandatory": true},
+      {"rule_group": 1, "field": "owns_business", "operator": "is_true", "value": "true", "description": "You own a business exploring a new product/service", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Contact your LEO", "description": "Discuss your business idea with your Local Enterprise Office.", "url": null},
+      {"step_number": 2, "title": "Submit application", "description": "Outline the feasibility study you want to conduct.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Feasibility study proposal", "description": "Outline of what the study will investigate", "is_required": true}
+    ]
+  },
+  {
+    "name": "SEAI EV Purchase Grant",
+    "slug": "seai-ev-purchase-grant",
+    "short_description": "Up to €3,500 towards the purchase of a new electric vehicle (EV).",
+    "long_description": "The SEAI Electric Vehicle grant provides up to €3,500 towards the purchase of a new battery electric vehicle (BEV). The grant is applied as a discount by the dealer at the point of sale.",
+    "category": "transport",
+    "max_amount": 3500.00,
+    "amount_description": "Up to €3,500",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "SEAI",
+    "source_url": "https://www.seai.ie/grants/electric-vehicle-grants/grant-amounts/",
+    "application_url": "https://www.seai.ie/grants/electric-vehicle-grants/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Applied at point of sale",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "planning_ev_purchase", "operator": "is_true", "value": "true", "description": "You must be purchasing or planning to purchase a new electric vehicle", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Choose an eligible EV", "description": "Select a new BEV from the SEAI's list of eligible vehicles.", "url": null},
+      {"step_number": 2, "title": "Purchase through a dealer", "description": "The dealer applies the grant as a discount. You don't need to apply separately.", "url": null}
+    ],
+    "documents": []
+  },
+  {
+    "name": "SEAI EV Home Charger Grant",
+    "slug": "seai-ev-home-charger-grant",
+    "short_description": "Up to €300 towards installing a home charger for your electric vehicle.",
+    "long_description": "If you own an electric vehicle, you can get a grant towards the installation of a home charging point. The grant covers part of the cost of a safe, dedicated home charger.",
+    "category": "transport",
+    "max_amount": 300.00,
+    "amount_description": "Up to €300",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "SEAI",
+    "source_url": "https://www.seai.ie/grants/electric-vehicle-grants/home-charger-grant/",
+    "application_url": "https://www.seai.ie/grants/electric-vehicle-grants/home-charger-grant/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-6 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "vehicle_type", "operator": "eq", "value": "electric", "description": "You must own or have ordered an electric vehicle", "is_mandatory": true},
+      {"rule_group": 1, "field": "planning_ev_purchase", "operator": "is_true", "value": "true", "description": "You are planning to purchase an EV", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Choose an installer", "description": "Select an SEAI-registered home charger installer.", "url": null},
+      {"step_number": 2, "title": "Install charger", "description": "Have the charger installed at your home.", "url": null},
+      {"step_number": 3, "title": "Apply for grant", "description": "Submit your application with the installation invoice.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Proof of EV ownership", "description": "Vehicle registration certificate for your electric vehicle", "is_required": true},
+      {"document_name": "Installation invoice", "description": "Invoice from registered installer", "is_required": true}
+    ]
+  },
+  {
+    "name": "Rent Tax Credit",
+    "slug": "rent-tax-credit",
+    "short_description": "Tax credit of up to €1,000 per year (€2,000 for couples) if you rent your home.",
+    "long_description": "The Rent Tax Credit is available to people who pay rent for a property that is their principal private residence. It is worth up to €1,000 for single people and €2,000 for jointly assessed couples.",
+    "category": "tax_relief",
+    "max_amount": 1000.00,
+    "amount_description": "Up to €1,000/year (€2,000 for couples)",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/land-and-property/rent-credit/index.aspx",
+    "application_url": "https://www.ros.ie/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Immediate (applied to tax return)",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "home_status", "operator": "eq", "value": "renter", "description": "You must be renting your home", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Gather rental details", "description": "You need your landlord's name, address, and the amount of rent paid.", "url": null},
+      {"step_number": 2, "title": "Claim through Revenue", "description": "Claim the credit through myAccount or ROS when filing your tax return.", "url": "https://www.ros.ie/"}
+    ],
+    "documents": [
+      {"document_name": "Rental receipts", "description": "Proof of rent payments made during the year", "is_required": true},
+      {"document_name": "Landlord details", "description": "Name and address of landlord", "is_required": true}
+    ]
+  },
+  {
+    "name": "Home Carer Tax Credit",
+    "slug": "home-carer-tax-credit",
+    "short_description": "Tax credit of up to €1,700 for married couples where one spouse works in the home caring for dependants.",
+    "long_description": "The Home Carer Tax Credit is available to married couples or civil partners who are jointly assessed and where one spouse or civil partner works in the home caring for a dependent person (child, elderly, or disabled person).",
+    "category": "tax_relief",
+    "max_amount": 1700.00,
+    "amount_description": "Up to €1,700",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/marital-and-civil-status/home-carer-credit/index.aspx",
+    "application_url": "https://www.ros.ie/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Immediate",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "marital_status", "operator": "in", "value": "married,cohabiting", "description": "You must be married or in a civil partnership", "is_mandatory": true},
+      {"rule_group": 0, "field": "is_carer", "operator": "is_true", "value": "true", "description": "One spouse must work in the home caring for a dependant", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Claim through Revenue", "description": "Apply for the credit through myAccount or ROS.", "url": "https://www.ros.ie/"}
+    ],
+    "documents": []
+  },
+  {
+    "name": "Single Person Child Carer Credit",
+    "slug": "single-person-child-carer-credit",
+    "short_description": "Tax credit of €1,650 for single parents who are the principal carer of a child.",
+    "long_description": "The Single Person Child Carer Credit (SPCCC) is a tax credit of €1,650 available to people who are caring for a child on their own. You also get an increased standard rate tax band of €4,000.",
+    "category": "tax_relief",
+    "max_amount": 1650.00,
+    "amount_description": "€1,650 + €4,000 increased tax band",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/children/single-person-child-carer-credit/index.aspx",
+    "application_url": "https://www.ros.ie/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Immediate",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "is_lone_parent", "operator": "is_true", "value": "true", "description": "You must be a single parent and the principal carer", "is_mandatory": true},
+      {"rule_group": 0, "field": "has_children", "operator": "is_true", "value": "true", "description": "You must have at least one qualifying child", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Claim through Revenue", "description": "Apply through myAccount or ROS.", "url": "https://www.ros.ie/"}
+    ],
+    "documents": []
+  },
+  {
+    "name": "Remote Working Tax Relief",
+    "slug": "remote-working-tax-relief",
+    "short_description": "Claim 30% of the cost of electricity, heating, and broadband for days worked from home.",
+    "long_description": "If you work from home, you can claim income tax relief on 30% of the cost of electricity, heating, and broadband for the days you worked remotely. Your employer may also pay you up to €3.20 per day tax-free.",
+    "category": "tax_relief",
+    "max_amount": null,
+    "amount_description": "30% of vouched utility costs for remote work days",
+    "amount_type": "percentage",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/jobs-and-pensions/eworking/index.aspx",
+    "application_url": "https://www.ros.ie/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Applied at end of year",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "employment_status", "operator": "in", "value": "employed,self_employed", "description": "You must be working (employed or self-employed)", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Calculate your costs", "description": "Work out 30% of electricity, heating, and broadband costs for work-from-home days.", "url": null},
+      {"step_number": 2, "title": "Claim at year end", "description": "Claim the relief through your annual tax return on Revenue myAccount or ROS.", "url": "https://www.ros.ie/"}
+    ],
+    "documents": [
+      {"document_name": "Utility bills", "description": "Electricity, heating, and broadband bills", "is_required": true},
+      {"document_name": "Work-from-home records", "description": "Record of days worked from home", "is_required": true}
+    ]
+  },
+  {
+    "name": "Carer's Allowance",
+    "slug": "carers-allowance",
+    "short_description": "Weekly payment for people providing full-time care to someone who needs support due to age, disability, or illness.",
+    "long_description": "Carer's Allowance is a means-tested payment for people aged 18+ who are providing full-time care and attention to a person who needs support due to age, physical or intellectual disability, or illness.",
+    "category": "carers",
+    "max_amount": null,
+    "amount_description": "Up to €232/week (under 66) or €270/week (66+)",
+    "amount_type": "variable",
+    "is_means_tested": true,
+    "source_organisation": "Department of Social Protection",
+    "source_url": "https://www.gov.ie/en/service/455c14-carers-allowance/",
+    "application_url": "https://www.gov.ie/en/service/455c14-carers-allowance/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "8-12 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "is_carer", "operator": "is_true", "value": "true", "description": "You must be providing full-time care to someone", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check eligibility", "description": "You must be aged 18+, living in Ireland, and providing full-time care.", "url": null},
+      {"step_number": 2, "title": "Apply", "description": "Complete the Carer's Allowance application form (CR1).", "url": "https://www.gov.ie/en/service/455c14-carers-allowance/"}
+    ],
+    "documents": [
+      {"document_name": "Medical report", "description": "GP report on the person being cared for", "is_required": true},
+      {"document_name": "Proof of income", "description": "Income details for means test", "is_required": true}
+    ]
+  },
+  {
+    "name": "Carer's Support Grant",
+    "slug": "carers-support-grant",
+    "short_description": "Annual payment of €1,850 for carers — paid automatically if you receive Carer's Allowance/Benefit.",
+    "long_description": "The Carer's Support Grant is an annual payment of €1,850 made to carers in June each year. It is paid automatically to recipients of Carer's Allowance, Carer's Benefit, or Domiciliary Care Allowance. Others can apply directly.",
+    "category": "carers",
+    "max_amount": 1850.00,
+    "amount_description": "€1,850 per year",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Department of Social Protection",
+    "source_url": "https://www.gov.ie/en/service/a3dce5-carers-support-grant/",
+    "application_url": "https://www.gov.ie/en/service/a3dce5-carers-support-grant/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Paid in June each year",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "is_carer", "operator": "is_true", "value": "true", "description": "You must be providing full-time care for at least 6 months", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Automatic if on Carer's payments", "description": "If you already receive Carer's Allowance/Benefit, the grant is paid automatically.", "url": null},
+      {"step_number": 2, "title": "Apply if not receiving payments", "description": "Otherwise, apply using form CSG 1.", "url": null}
+    ],
+    "documents": []
+  },
+  {
+    "name": "Disability Allowance",
+    "slug": "disability-allowance",
+    "short_description": "Weekly payment for people aged 16-66 with a disability expected to last at least one year.",
+    "long_description": "Disability Allowance is a means-tested weekly payment for people aged 16-66 with a disability that is expected to last at least one year and substantially restricts their ability to work.",
+    "category": "disability",
+    "max_amount": null,
+    "amount_description": "Up to €220/week",
+    "amount_type": "variable",
+    "is_means_tested": true,
+    "source_organisation": "Department of Social Protection",
+    "source_url": "https://www.gov.ie/en/service/df5c0d-disability-allowance/",
+    "application_url": "https://www.gov.ie/en/service/df5c0d-disability-allowance/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "12-16 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "has_disability", "operator": "is_true", "value": "true", "description": "You must have a disability expected to last at least 1 year", "is_mandatory": true},
+      {"rule_group": 0, "field": "age", "operator": "between", "value": "16,66", "description": "You must be aged between 16 and 66", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Get medical evidence", "description": "Have your GP complete the medical report section of the application form.", "url": null},
+      {"step_number": 2, "title": "Apply", "description": "Complete the Disability Allowance form and submit with medical evidence.", "url": "https://www.gov.ie/en/service/df5c0d-disability-allowance/"}
+    ],
+    "documents": [
+      {"document_name": "Medical report", "description": "Completed by your GP on the application form", "is_required": true},
+      {"document_name": "Proof of income", "description": "Income details for means test", "is_required": true},
+      {"document_name": "Proof of identity", "description": "Public Services Card or other ID", "is_required": true}
+    ]
+  },
+  {
+    "name": "Cycle to Work Scheme",
+    "slug": "cycle-to-work-scheme",
+    "short_description": "Save up to €1,250 in tax on a new bicycle and safety equipment (up to €3,500 for e-bikes).",
+    "long_description": "The Cycle to Work scheme allows employees to buy a bicycle and safety equipment tax-free through their employer. The benefit can be availed of once every 4 years. Limit is €1,250 for standard bikes or €3,500 for electric bikes.",
+    "category": "transport",
+    "max_amount": 3500.00,
+    "amount_description": "Up to €1,250 (standard) or €3,500 (e-bike) tax relief",
+    "amount_type": "variable",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/jobs-and-pensions/taxation-of-employer-benefits/cycle-to-work-scheme.aspx",
+    "application_method": "in_person",
+    "is_always_open": true,
+    "typical_processing": "Immediate through employer",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "employment_status", "operator": "eq", "value": "employed", "description": "You must be a PAYE employee", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check with employer", "description": "Ask your employer if they participate in the Cycle to Work scheme.", "url": null},
+      {"step_number": 2, "title": "Choose a bike", "description": "Select a bike and safety equipment from a participating retailer.", "url": null},
+      {"step_number": 3, "title": "Employer purchases", "description": "Your employer purchases the bike and deducts the cost from your salary (before tax) over 12 months.", "url": null}
+    ],
+    "documents": []
+  },
+  {
+    "name": "Maternity Benefit",
+    "slug": "maternity-benefit",
+    "short_description": "Payment of €274 per week for 26 weeks while on maternity leave from work.",
+    "long_description": "Maternity Benefit is a payment made to women who are on maternity leave from work and covered by social insurance (PRSI). It is paid for 26 weeks.",
+    "category": "health",
+    "max_amount": 7124.00,
+    "amount_description": "€274/week for 26 weeks",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Department of Social Protection",
+    "source_url": "https://www.gov.ie/en/service/apply-for-maternity-benefit/",
+    "application_url": "https://www.mywelfare.ie/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "2-4 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "employment_status", "operator": "in", "value": "employed,self_employed", "description": "You must be in employment or self-employment", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Notify your employer", "description": "Give your employer at least 4 weeks' notice of your maternity leave.", "url": null},
+      {"step_number": 2, "title": "Apply online", "description": "Apply at least 6 weeks before your maternity leave starts.", "url": "https://www.mywelfare.ie/"}
+    ],
+    "documents": [
+      {"document_name": "Medical certificate", "description": "Confirming expected date of birth", "is_required": true},
+      {"document_name": "Employer details", "description": "Employer's name, address, and PRSI details", "is_required": true}
+    ]
+  },
+  {
+    "name": "Medical Expenses Tax Relief",
+    "slug": "medical-expenses-tax-relief",
+    "short_description": "Claim 20% tax relief on qualifying medical expenses not covered by insurance.",
+    "long_description": "You can claim tax relief at 20% on qualifying medical expenses that you have paid and are not reimbursed by insurance. This includes GP visits, prescribed medicines, hospital charges, physiotherapy, and more.",
+    "category": "tax_relief",
+    "max_amount": null,
+    "amount_description": "20% of qualifying medical expenses",
+    "amount_type": "percentage",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/health-and-age/health-expenses/index.aspx",
+    "application_url": "https://www.ros.ie/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Applied at year end",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "county", "operator": "exists", "value": "", "description": "Available to all Irish tax residents", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Keep receipts", "description": "Keep all receipts for medical expenses throughout the year.", "url": null},
+      {"step_number": 2, "title": "Claim at year end", "description": "Claim through Revenue myAccount or ROS in your annual tax return.", "url": "https://www.ros.ie/"}
+    ],
+    "documents": [
+      {"document_name": "Medical receipts", "description": "Receipts for all medical expenses claimed", "is_required": true}
+    ]
+  },
+  {
+    "name": "Tuition Fees Tax Relief",
+    "slug": "tuition-fees-tax-relief",
+    "short_description": "Tax relief at 20% on qualifying tuition fees for approved undergraduate and postgraduate courses.",
+    "long_description": "You can claim tax relief at 20% on tuition fees paid for approved courses in approved colleges. The maximum relief is on fees up to €7,000 per course per academic year. The first €3,000 for full-time (€1,500 for part-time) is disregarded.",
+    "category": "tax_relief",
+    "max_amount": 7000.00,
+    "amount_description": "20% tax relief on fees up to €7,000",
+    "amount_type": "percentage",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/education/tuition-fees-paid-for-third-level-education/index.aspx",
+    "application_url": "https://www.ros.ie/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Applied at year end",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "is_student", "operator": "is_true", "value": "true", "description": "You or a dependent is in approved education", "is_mandatory": true},
+      {"rule_group": 1, "field": "planning_education", "operator": "is_true", "value": "true", "description": "You are planning to enter education", "is_mandatory": true},
+      {"rule_group": 2, "field": "has_children", "operator": "is_true", "value": "true", "description": "You are paying tuition for a dependent child", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Ensure course is approved", "description": "Check that the college and course are on Revenue's approved list.", "url": null},
+      {"step_number": 2, "title": "Claim at year end", "description": "Claim through Revenue myAccount or ROS.", "url": "https://www.ros.ie/"}
+    ],
+    "documents": [
+      {"document_name": "Proof of fees paid", "description": "Receipt from college showing fees paid", "is_required": true}
+    ]
+  },
+  {
+    "name": "Household Benefits Package",
+    "slug": "household-benefits-package",
+    "short_description": "Free electricity/gas allowance and free TV licence for qualifying households.",
+    "long_description": "The Household Benefits Package includes a monthly electricity or gas allowance and a free TV licence. Available to people aged 70+ and some people under 70 receiving qualifying welfare payments.",
+    "category": "welfare",
+    "max_amount": null,
+    "amount_description": "Monthly electricity/gas allowance + free TV licence",
+    "amount_type": "free_service",
+    "is_means_tested": false,
+    "source_organisation": "Department of Social Protection",
+    "source_url": "https://www.gov.ie/en/service/2f76c4-household-benefits/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-6 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "is_over_70", "operator": "is_true", "value": "true", "description": "You are aged 70 or over", "is_mandatory": true},
+      {"rule_group": 1, "field": "is_over_66", "operator": "is_true", "value": "true", "description": "You are aged 66-69 and living alone or with qualifying person", "is_mandatory": true},
+      {"rule_group": 2, "field": "welfare_payments", "operator": "contains", "value": "disability_allowance", "description": "You are on Disability Allowance and living alone", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check eligibility", "description": "You must be 70+ or receiving a qualifying payment and meet other conditions.", "url": null},
+      {"step_number": 2, "title": "Apply", "description": "Apply online at MyWelfare.ie or at your local DSP office.", "url": "https://www.mywelfare.ie/"}
+    ],
+    "documents": [
+      {"document_name": "Proof of age", "description": "If claiming based on age", "is_required": false},
+      {"document_name": "Electricity/gas account details", "description": "Your utility account number", "is_required": true}
+    ]
+  },
+  {
+    "name": "Back to School Clothing and Footwear Allowance",
+    "slug": "back-to-school-clothing-footwear-allowance",
+    "short_description": "Annual payment to help with the cost of school uniforms and footwear — €160 per child (4-11) or €285 per child (12+).",
+    "long_description": "The Back to School Clothing and Footwear Allowance (BSCFA) helps families on low incomes with the cost of school uniforms and footwear at the start of the school year.",
+    "category": "family",
+    "max_amount": 285.00,
+    "amount_description": "€160 per child (4-11) / €285 per child (12+)",
+    "amount_type": "fixed",
+    "is_means_tested": true,
+    "source_organisation": "Department of Social Protection",
+    "source_url": "https://www.gov.ie/en/service/d3e5d1-back-to-school-clothing-and-footwear-allowance/",
+    "application_url": "https://www.mywelfare.ie/",
+    "application_method": "online",
+    "is_always_open": false,
+    "typical_processing": "2-4 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "has_children", "operator": "is_true", "value": "true", "description": "You must have children of school-going age", "is_mandatory": true},
+      {"rule_group": 0, "field": "income_bracket", "operator": "in", "value": "<20k,20-40k", "description": "Your household income must be below the BSCFA limit", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check if automatic", "description": "Many families on qualifying payments receive BSCFA automatically.", "url": null},
+      {"step_number": 2, "title": "Apply if needed", "description": "Apply through MyWelfare.ie during the application window (June-September).", "url": "https://www.mywelfare.ie/"}
+    ],
+    "documents": [
+      {"document_name": "Proof of income", "description": "Recent payslips or welfare statements", "is_required": true},
+      {"document_name": "Children's school details", "description": "Proof of school enrollment", "is_required": true}
+    ]
+  },
+  {
+    "name": "Landlord Retrofit Tax Deduction",
+    "slug": "landlord-retrofit-tax-deduction",
+    "short_description": "Tax deduction of up to €10,000 per property for landlords who carry out energy upgrades.",
+    "long_description": "Landlords who carry out energy efficiency upgrades on rental properties can claim a tax deduction of up to €10,000 per property against rental income. Works must achieve a BER improvement of at least one grade.",
+    "category": "tax_relief",
+    "max_amount": 10000.00,
+    "amount_description": "Up to €10,000 tax deduction per property",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Revenue",
+    "source_url": "https://www.revenue.ie/en/property/rental-income/deductions-allowed/retrofitting-deduction.aspx",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Applied at tax return",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "is_landlord", "operator": "is_true", "value": "true", "description": "You must be a landlord with rental properties", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Carry out energy upgrades", "description": "Complete qualifying energy upgrades that improve the BER by at least one grade.", "url": null},
+      {"step_number": 2, "title": "Keep documentation", "description": "Keep BER certificates (before and after) and all invoices.", "url": null},
+      {"step_number": 3, "title": "Claim on tax return", "description": "Claim the deduction when filing your annual tax return.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "BER certificates", "description": "Before and after BER assessments showing improvement", "is_required": true},
+      {"document_name": "Invoices", "description": "Invoices for all qualifying works", "is_required": true}
+    ]
+  },
+  {
+    "name": "ACRES — Agri-Climate Rural Environment Scheme",
+    "slug": "acres-agri-climate-rural-environment-scheme",
+    "short_description": "Annual payment of €7,000-€10,000+ for farmers implementing environmental and climate actions.",
+    "long_description": "ACRES is the agri-environment scheme under Ireland's CAP Strategic Plan. It pays farmers to carry out environmental actions on their land. There are two tiers: General (€7,000+/year) and Co-operation Project (€10,000+/year).",
+    "category": "farming",
+    "max_amount": 10000.00,
+    "amount_description": "Up to €10,000+/year",
+    "amount_type": "variable",
+    "is_means_tested": false,
+    "source_organisation": "Department of Agriculture",
+    "source_url": "https://www.gov.ie/en/service/f5a48-agri-climate-rural-environment-scheme-acres/",
+    "application_method": "online",
+    "is_always_open": false,
+    "typical_processing": "Several months",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "is_farmer", "operator": "is_true", "value": "true", "description": "You must be an active farmer", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Contact an agricultural advisor", "description": "An approved ACRES advisor will help you apply and create your plan.", "url": null},
+      {"step_number": 2, "title": "Submit application", "description": "Your advisor submits the application on your behalf during the application window.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Herd number", "description": "Your Department of Agriculture herd number", "is_required": true},
+      {"document_name": "Farm details", "description": "Details of land and farming activities", "is_required": true}
+    ]
+  },
+  {
+    "name": "Enterprise Ireland Innovation Voucher",
+    "slug": "enterprise-ireland-innovation-voucher",
+    "short_description": "€5,000 voucher to work with a research institution on an innovation project for your business.",
+    "long_description": "The Innovation Voucher is worth €5,000 and allows a small business to work with a publicly funded research body to explore a business opportunity or solve a technical problem.",
+    "category": "business",
+    "max_amount": 5000.00,
+    "amount_description": "€5,000",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Enterprise Ireland",
+    "source_url": "https://www.enterprise-ireland.com/en/research-innovation/companies/collaborate-with-companies-research-institutes/innovation-voucher.html",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-6 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "owns_business", "operator": "is_true", "value": "true", "description": "You must own a business registered in Ireland", "is_mandatory": true},
+      {"rule_group": 0, "field": "num_employees", "operator": "lte", "value": "50", "description": "Business must have fewer than 50 employees", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Identify a research partner", "description": "Find a research institution to work with on your innovation project.", "url": null},
+      {"step_number": 2, "title": "Apply online", "description": "Apply through the Enterprise Ireland website.", "url": "https://www.enterprise-ireland.com/"}
+    ],
+    "documents": [
+      {"document_name": "Business registration", "description": "CRO registration details", "is_required": true},
+      {"document_name": "Project description", "description": "Brief description of the innovation project", "is_required": true}
+    ]
+  },
+  {
+    "name": "Jobseeker's Allowance",
+    "slug": "jobseekers-allowance",
+    "short_description": "Means-tested weekly payment if you are unemployed and looking for work.",
+    "long_description": "Jobseeker's Allowance is a means-tested social welfare payment for people who are unemployed and looking for full-time work. You must be aged 18-66, available for and genuinely seeking work.",
+    "category": "welfare",
+    "max_amount": null,
+    "amount_description": "Up to €220/week (varies by age and circumstances)",
+    "amount_type": "variable",
+    "is_means_tested": true,
+    "source_organisation": "Department of Social Protection",
+    "source_url": "https://www.gov.ie/en/service/1221c7-jobseekers-allowance/",
+    "application_method": "in_person",
+    "is_always_open": true,
+    "typical_processing": "2-4 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "employment_status", "operator": "eq", "value": "unemployed", "description": "You must be unemployed and looking for work", "is_mandatory": true},
+      {"rule_group": 0, "field": "age", "operator": "between", "value": "18,66", "description": "You must be aged between 18 and 66", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Sign on", "description": "Visit your local Intreo centre to register as unemployed.", "url": null},
+      {"step_number": 2, "title": "Provide documentation", "description": "Bring ID, proof of address, and evidence of means/income.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Photo ID", "description": "Passport, driving licence, or Public Services Card", "is_required": true},
+      {"document_name": "Proof of address", "description": "Utility bill or bank statement", "is_required": true},
+      {"document_name": "P45/P60", "description": "From your last employer if recently unemployed", "is_required": false}
+    ]
+  },
+  {
+    "name": "State Pension (Contributory)",
+    "slug": "state-pension-contributory",
+    "short_description": "Weekly pension of up to €277.30 for people aged 66+ with enough PRSI contributions.",
+    "long_description": "The State Pension (Contributory) is paid to people aged 66+ who have enough Class A or S PRSI contributions. The amount depends on your contribution record.",
+    "category": "welfare",
+    "max_amount": 14419.60,
+    "amount_description": "Up to €277.30/week",
+    "amount_type": "fixed",
+    "is_means_tested": false,
+    "source_organisation": "Department of Social Protection",
+    "source_url": "https://www.gov.ie/en/service/e6e8b0-state-pension-contributory/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "Several weeks before 66th birthday",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "is_over_66", "operator": "is_true", "value": "true", "description": "You must be aged 66 or over", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Check your PRSI record", "description": "Request a copy of your PRSI contribution record from the DSP.", "url": null},
+      {"step_number": 2, "title": "Apply 3 months before turning 66", "description": "Submit your application at least 3 months before your 66th birthday.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Birth certificate", "description": "Proof of date of birth", "is_required": true},
+      {"document_name": "PRSI record", "description": "Your social insurance contribution record", "is_required": true}
+    ]
+  },
+  {
+    "name": "One Parent Family Payment",
+    "slug": "one-parent-family-payment",
+    "short_description": "Weekly payment for people parenting alone who are not cohabiting and have a qualifying child.",
+    "long_description": "The One-Parent Family Payment is a means-tested weekly payment for people aged under 66 who are bringing up a child without the support of a partner. The payment continues until the youngest child is 7.",
+    "category": "welfare",
+    "max_amount": null,
+    "amount_description": "Up to €220/week + child increases",
+    "amount_type": "variable",
+    "is_means_tested": true,
+    "source_organisation": "Department of Social Protection",
+    "source_url": "https://www.gov.ie/en/service/c42a1b-one-parent-family-payment/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "6-8 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "is_lone_parent", "operator": "is_true", "value": "true", "description": "You must be parenting alone", "is_mandatory": true},
+      {"rule_group": 0, "field": "has_children", "operator": "is_true", "value": "true", "description": "You must have at least one qualifying child", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Apply", "description": "Complete the OFP 1 application form and submit to your local DSP office.", "url": null}
+    ],
+    "documents": [
+      {"document_name": "Child's birth certificate", "description": "Birth certificate for qualifying child", "is_required": true},
+      {"document_name": "Proof of income", "description": "Income details for means test", "is_required": true}
+    ]
+  },
+  {
+    "name": "LEO Trading Online Voucher",
+    "slug": "leo-trading-online-voucher",
+    "short_description": "Up to €2,500 to help your business develop an online trading presence.",
+    "long_description": "The Trading Online Voucher helps small businesses with up to 10 employees to develop their online trading capability. It covers 50% of eligible costs for website development, e-commerce, and online marketing.",
+    "category": "business",
+    "max_amount": 2500.00,
+    "amount_description": "Up to €2,500 (50% of costs)",
+    "amount_type": "percentage",
+    "is_means_tested": false,
+    "source_organisation": "Local Enterprise Office",
+    "source_url": "https://www.localenterprise.ie/Discover-Business-Supports/Trading-Online-Voucher-Scheme-/",
+    "application_method": "online",
+    "is_always_open": true,
+    "typical_processing": "4-6 weeks",
+    "eligibility_rules": [
+      {"rule_group": 0, "field": "owns_business", "operator": "is_true", "value": "true", "description": "You must own a business", "is_mandatory": true},
+      {"rule_group": 0, "field": "num_employees", "operator": "lte", "value": "10", "description": "Business must have 10 or fewer employees", "is_mandatory": true}
+    ],
+    "steps": [
+      {"step_number": 1, "title": "Attend a seminar", "description": "Attend a free Trading Online information seminar.", "url": null},
+      {"step_number": 2, "title": "Apply online", "description": "Submit your application through the LEO website.", "url": "https://www.localenterprise.ie/"}
+    ],
+    "documents": [
+      {"document_name": "Business details", "description": "Business registration and trading history", "is_required": true},
+      {"document_name": "Quote for online project", "description": "Quote from web developer or digital agency", "is_required": true}
+    ]
+  }
+]
